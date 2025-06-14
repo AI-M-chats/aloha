@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <!-- Prevues
+  <meta property="og:title" content="AI-M.io">
+  <meta property="og:site_name" content="ai-m.io">
+  <meta property="og:url" content="https://ai-m.io">
+  <meta property="og:description" content="AI-M Creating the intelligent solutions for your business">
+  <meta property="og:image" content="media/prevue.png" />
+  <meta property="og:image:width" content="548">
+  <meta property="og:image:height" content="321"> -->
+  
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(30, 34, 62);
+      /* background-image: url('media/artistic-blurry-colorful-wallpaper-background (1).jpg'); */ 
+      background-image: url('media/artistic-blurry-colorful-wallpaper-background_58702-8292.avif');
+      background-size: contain;
+      background-size: cover;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+
+
+    header {
+      background-color: rgb(10,10,10);
+    }
+
+    .hero {
+      height: 90vh;
+      background: url('media/aloha_bg.png') center/cover no-repeat; /* Фоновое изображение */
+      position: relative; /* Для размещения псевдоэлемента */
+      /* overflow: hidden; Скрываем псевдоэлемент, чтобы не было лишнего контента */
+      position: relative;
+      z-index: 10;
+    }
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 94px; /* Высота градиентного перехода */
+      pointer-events: none; /* Убираем взаимодействие с псевдоэлементами */
+      z-index: 11; /* Установим z-index выше фонового изображения */
+    }
+    .hero::before {
+      top: 80px;
+      background: linear-gradient(to bottom, rgb(10, 10, 10) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+    .hero::after {
+      bottom: -47px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0, 10, 33) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+
+    
+    .hero-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap-reverse;
+      color: white;
+      height: 100vh;
+    }
+   
+    .hero-content div {
+      max-width: 520px;
+    }
+
+    .hero-left {
+      padding-right: 4rem;
+      text-align: left;
+      z-index: 120;
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 4rem;
+      width: 420px;
+      min-height: 160px;
+    }
+
+    .hero-title {
+      font-weight: 700;
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-description {
+      font-family: 'Netflix Sans', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-button {
+      display: block;
+      width: 197.5px;
+      text-align: center;
+      background-color: #e50914;
+      color: white;
+      /* margin: 0 auto; */
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #c50712;
+    }
+    @media screen and (max-width: 1200px) {
+      .hero-content {
+        height: auto;
+        max-height: 100vh;
+        padding-top: 24vh;
+      }
+      .hero-left {
+        padding-right: 0;
+      }
+      .hero-right {
+        min-height: 200px;
+      }
+    }
+
+
+
+
+
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      overflow: hidden;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-item {
+      display: none;
+      position: absolute;
+      width: 60%;
+      opacity: 0.5;
+      transform: scale(0.74);
+      transition: all 0.5s ease;
+      cursor: pointer;
+    }
+
+    .carousel-item--active {
+      display: block;
+      position: relative;
+      width: 60%;
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+      cursor: default;
+    }
+
+    .carousel-item--prev {
+      display: block;
+      left: 2%;
+    }
+    .carousel-item--prev:hover {
+      transform: scale(0.8);
+      left: 3%;
+    }
+
+    .carousel-item--next {
+      display: block;
+      right: 2%;
+    }
+    .carousel-item--next:hover {
+      transform: scale(0.8);
+      right: 3%;
+    }
+
+
+
+
+
+
+
+    .dv {
+      position: absolute;
+      background: #5f8181;
+      width:1px;
+      height: 40%;
+    }
+    .dv1 {
+      width:70%;
+      height: 1px;
+      left: 15%;
+      top:50%;
+    }
+    .dv2 {
+      top: 30%;
+      left: 25%;
+    }
+    .dv3 {
+      top: 30%;
+      left: 50%;
+    }
+    .dv4 {
+      top: 30%;
+      left: 75%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+  .accordion {
+    display: space-y-4;
+  }
+
+  .accordion-item {
+    background-color: rgb(10, 10, 10);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(125, 125, 125, 0.1), 0 2px 4px -1px rgba(125, 125, 125, 0.06);
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    color: rgb(210, 210, 210);
+  }
+
+  .accordion-btn {
+    outline: none;
+  }
+
+  .accordion-btn svg {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0 1.5rem;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  }
+
+  .accordion-item.open .accordion-btn svg {
+    transform: rotate(90deg);
+  }
+
+  .accordion-item.open .accordion-content {
+    max-height: 9999px;
+    padding: 1rem 1.5rem;
+    color: whitesmoke;
+  }
+
+
+
+
+
+
+
+  .text-sky-100 {
+    color: rgb(224 242 254);
+  }
+
+
+
+
+
+
+  .presentation {
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        width: 100vw;
+        min-height: 36vw;
+        overflow-y: hidden;
+    }
+    .presentation::-webkit-scrollbar {
+        display: none;
+    }
+    .presentation-item {
+        scroll-snap-align: start;
+        height: 100.57%;
+        width: 100%;
+        
+    }
+    @media (max-aspect-ratio: 5/4) {
+        .presentation {
+          min-height: 55vw;
+        }
+    }
+
+
+    .histories {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+
+
+    .rbb {
+      position: fixed; 
+      bottom: 2rem; 
+      right: 1.5rem; 
+      border: 2px solid #5f8181;
+      width: 64px;
+      height: 64px;
+      background: rgba(31, 41, 55);
+      font-size: 0.75em;
+      line-height: 1em;
+      transition: width 0.3s ease-in-out, height 0.3s ease-in-out, bottom 0.43s linear, right 0.43s linear; 
+    }
+    .rbbb {
+      bottom: 0; 
+      right: 0; 
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background: none;
+      border: none;
+    }
+    .rbb div {
+      display: none;
+    }
+    .rbbb div {
+      display: block;
+    }
+
+
+
+    .glow-circle {
+      stroke: url(#neonGradient);
+      stroke-width: 2;
+      fill: none;
+      filter: drop-shadow(0 0 6px rgba(99,102,241,0.6));
+    }
+
+  </style>
+  <title>ALOHA AI разработка ботов с искуственным интелектом</title>
+  <link rel="icon" type="image/x-icon" href="media/logo_sm.png">
+</head>
+<body>
+  <div data-name="search-keys" style="display: none;">
+    <h1>создание AI чат бота</h1>
+    <h1>создание бота с искусственным интеллектом</h1>
+    <h1>разработка чат ботов</h1>
+    <h1>AI HR ассистент</h1>
+    <h1>AI Авито автоответчик</h1>
+    <h1>Чат на сайт</h1>
+    <h1>AI СЕО Копирайтер</h1>
+    <h1>AI Телеграм копирайтер</h1>
+    <h1>AI курсы преподаватель</h1>
+    <h1>AI секретарь</h1>
+    <h1>AI агенство</h1>
+  </div>
+
+  <div id="loader" class="w-screen h-full bg-white fixed top-0 left-0 z-50">
+    <img src="media/hourglass_8721072.gif" class="w-32 h-32 mx-auto mt-64" alt="Icon" />
+  </div>
+
+
+  <header class="text-white py-2 md:py-4 fixed top-0 left-0 w-screen z-20">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="#" class="text-lg font-bold m-4 md:mr-14  w-18 h-8 flex items-center justify-center">
+          A<span class="font-light">LOH</span>A AI
+        </a>
+        <nav>
+          <ul class="flex flex-wrap space-x-1 md:space-x-4">
+            <!-- <li class="hidden md:block"><a href="#about" class="hover:text-gray-400">{{header_about}}</a></li> -->
+            <li><a href="#solutions" class="hover:text-gray-400 text-sm md:text-base">{{header_solutions}}</a></li>
+            <li class="hidden md:block"><a href="#features" class="hover:text-gray-400">{{header_features}}</a></li>
+            <li><a href="#examples" class="hover:text-gray-400 text-sm md:text-base">{{header_examples}}</a></li>
+            <li><a href="#contact" class="hover:text-gray-400 text-sm md:text-base">{{header_contact}}</a></li>
+            <li class="hidden md:block"><a href="#faq" class="hover:text-gray-400">{{header_faq}}</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="flex items-center relative">
+        <select class="bg-gray-800 text-white mx-4 my-1 rounded w-16 pl-2.5" style="appearance: none;" id="language-select">
+          <option value="en">En</option>
+          <option value="ru" selected>Ru</option>
+        </select>
+        <span style="position: absolute; top: 50%; right: 24px; transform: translateY(-50%); pointer-events: none; color: #ffffff; font-size: 14px; margin-left: -5px;">▼</span>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+  <section class="hero relative">
+    <div class="hero-content container mx-auto">
+      <div class="hero-left px-8 sm:px-0">
+        <h1 class="hero-title">{{hero_title}}</h1>
+        <p class="hero-description">{{hero_description}}</p>
+        <a href="#about" class="hero-button">{{hero_button}}</a>
+      </div>
+      <div class="hero-right">
+        <div class="text-white">
+          <a open-chat-modal id="rbcb" class="rbb rbbb flex flex-col gap-4 justify-center items-center bg-gray-800 md:hover:bg-gray-700 transition-colors duration-300 rounded-full w-16 h-16">
+            <!-- <svg class="w-5/6 h-4/6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M13.5 3a8.5 8.5 0 0 1 0 17H13v.99A1.01 1.01 0 0 1 11.989 22c-2.46-.002-4.952-.823-6.843-2.504C3.238 17.798 2.002 15.275 2 12.009V11.5A8.5 8.5 0 0 1 10.5 3zm0 2h-3A6.5 6.5 0 0 0 4 11.5l.001.665c.04 2.642 1.041 4.562 2.475 5.836C7.714 19.103 9.317 19.76 11 19.945v-.935c0-.558.452-1.01 1.01-1.01h1.49a6.5 6.5 0 1 0 0-13m-5 5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m7 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3"/></g></svg> -->
+            <svg class="w-5/6 h-4/6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <defs>
+                <linearGradient id="chatGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#00f0ff"/>
+                  <stop offset="100%" stop-color="#a833ff"/>
+                </linearGradient>
+                <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="#00f0ff" flood-opacity="0.4"/>
+                  <feDropShadow dx="0" dy="0" stdDeviation="2.4" flood-color="#a833ff" flood-opacity="0.3"/>
+                </filter>
+              </defs>
+
+              <g fill="none" filter="url(#neonGlow)">
+                <path d="M13.5 3a8.5 8.5 0 0 1 0 17H13v.99A1.01 1.01 0 0 1 11.989 22c-2.46-.002-4.952-.823-6.843-2.504C3.238 17.798 2.002 15.275 2 12.009V11.5A8.5 8.5 0 0 1 10.5 3zm0 2h-3A6.5 6.5 0 0 0 4 11.5l.001.665c.04 2.642 1.041 4.562 2.475 5.836C7.714 19.103 9.317 19.76 11 19.945v-.935c0-.558.452-1.01 1.01-1.01h1.49a6.5 6.5 0 1 0 0-13m-5 5a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m7 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3" fill="url(#chatGradient)"/>
+              </g>
+            </svg>
+
+            <div class="font-light text-white w-1/2 text-center">{{chat_modal_btn_text}}</div>
+          </a>
+          <script defer>
+            window.addEventListener('scroll', (e)=>{
+              const rbcb = document.getElementById('rbcb');
+              if(scrollY > 245) rbcb.classList.remove('rbbb');
+              if(scrollY < 245) rbcb.classList.add('rbbb');
+            })
+          </script>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="features" class="mb-20"></div>
+
+
+
+
+  <!-- <section class="text-white py-20 relative">
+    <div  id="about" class="absolute -top-24"></div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold mb-4">{{about_title}}</h2>
+          <p class="text-lg mb-6">{{about_text}}</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+
+<!-- FEATURES -->
+
+  <section class="text-white mx-20">
+    
+      <div data-name="features" class="m-4 md:m-20 relative flex justify-center flex-wrap">
+          <div class="hidden md:block dv dv1"></div>
+          <div class="hidden md:block dv dv2"></div>
+          <div class="hidden md:block dv dv3"></div>
+          <div class="hidden md:block dv dv4"></div>
+        
+        
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--folder-audit-open.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature5_title}}</h3>
+          <p class="text-base font-light">{{feature5_text}}</p>
+        </div>
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--code-of-conduct.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature6_title}}</h3>
+          <p class="text-base font-light">{{feature6_text}}</p>
+        </div>
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--mjml.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature7_title}}</h3>
+          <p class="text-base font-light">{{feature7_text}}</p>
+        </div>
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--verilog.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature8_title}}</h3>
+          <p class="text-base font-light">{{feature8_text}}</p>
+        </div>
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--unity.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature1_title}}</h3>
+          <p class="text-base font-light">{{feature1_text}}</p>
+        </div>
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--todo.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature2_title}}</h3>
+          <p class="text-base font-light">{{feature2_text}}</p>
+        </div>
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--twine.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature3_title}}</h3>
+          <p class="text-base font-light">{{feature3_text}}</p>
+        </div>
+        <div class="features-card md:w-1/4 h-1/2 p-8">
+          <img src="media/catppuccin--api-blueprint.svg" class="w-8 h-8" alt="Icon" />
+          <h3 class="font-medium text-lg my-4">{{feature4_title}}</h3>
+          <p class="text-base font-light">{{feature4_text}}</p>
+        </div>
+        
+
+
+      </div>
+  </section>
+
+
+  
+
+
+
+<!-- AI-conversation -->
+
+
+<section class="text-white my-40 relative">
+    <div  id="about" class="absolute -top-24"></div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-4xl font-bold mb-8">{{asistent_title}}</h2>
+          <p class="text-lg mb-6">{{about_text}}</p>
+        </div> 
+        <div class="flex items-center justify-center gap-8 sm:gap-16 mt-16 md:w-80 sm:w-full mx-auto">
+          <!-- <a href="https://t.me/ai_m_welcome_bot?start=utm=fromSite" class="flex flex-col gap-4 justify-center items-center bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full w-48 h-48">
+            <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon w-16 h-16" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1">
+              <path d="M834.24 127.872a95.168 95.168 0 0 0-29.856 7.136h-0.128c-9.12 3.616-52.48 21.856-118.4 49.504l-236.224 99.488c-169.504 71.36-336.128 141.632-336.128 141.632l1.984-0.768s-11.488 3.776-23.488 12a64.96 64.96 0 0 0-18.752 18.144c-5.888 8.64-10.624 21.856-8.864 35.52 2.88 23.104 17.856 36.96 28.608 44.608 10.88 7.744 21.248 11.36 21.248 11.36h0.256l156.256 52.64c7.008 22.496 47.616 156 57.376 186.752 5.76 18.368 11.36 29.856 18.368 38.624 3.392 4.48 7.36 8.224 12.128 11.232a35.808 35.808 0 0 0 7.872 3.392l-1.6-0.384c0.48 0.128 0.864 0.512 1.216 0.64 1.28 0.352 2.144 0.48 3.776 0.736 24.736 7.488 44.608-7.872 44.608-7.872l1.12-0.896 92.256-84 154.624 118.624 3.52 1.504c32.224 14.144 64.864 6.272 82.112-7.616 17.376-13.984 24.128-31.872 24.128-31.872l1.12-2.88 119.488-612.128c3.392-15.104 4.256-29.248 0.512-42.976a57.824 57.824 0 0 0-24.992-33.504 59.904 59.904 0 0 0-34.144-8.64z m-3.232 65.6c-0.128 2.016 0.256 1.792-0.64 5.664v0.352l-118.368 605.76c-0.512 0.864-1.376 2.752-3.744 4.64-2.496 1.984-4.48 3.232-14.88-0.896l-189.12-144.992-114.24 104.128 24-153.28 308.992-288c12.736-11.84 8.48-14.336 8.48-14.336 0.896-14.528-19.232-4.256-19.232-4.256l-389.632 241.376-0.128-0.64-186.752-62.88v-0.128l-0.48-0.096a8.64 8.64 0 0 0 0.96-0.384l1.024-0.512 0.992-0.352s166.752-70.272 336.256-141.632c84.864-35.744 170.368-71.744 236.128-99.52 65.76-27.616 114.368-47.872 117.12-48.96 2.624-1.024 1.376-1.024 3.264-1.024z"/>
+            </svg>    
+            
+            <div class="text-center">{{dialog_btn}}</div>
+          </a> -->
+          <a open-chat-modal class="flex gap-4 justify-center items-center bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full p-6">
+            <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- <path d="M22 12h-4l-3 9L9 3l-3 9H2" /> -->
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            <div class="text-center">{{dialog_btn}}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="solutions"></div>
+  </section>
+
+
+
+<!-- <div class="hidden lg:flex justify-center items-center gap-4">
+  <a href="#contact" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span>{{cta_button}}</span>
+  </a>
+</div> -->
+
+
+
+
+<!-- CARUSEL -->
+<div class="mt-16"></div>
+<!-- вместо карусели будут презы -->
+<!--   -->
+<section class="text-white hidden lg:block my-2">
+  <!-- <div class="text-center md:hidden">
+    <h2 class="text-3xl font-bold mb-16">{{bots_title}}</h2>
+  </div> -->
+  <div class="container mx-auto px-1 sm:px-4 ">
+    <div class="carousel">
+      <div class="carousel-wrapper">
+
+        
+        <div class="carousel-item carousel-item--active">
+              <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+                <h3 class="text-xl font-bold m-8">{{bot1_title}}</h3>
+                <img src="media/chat-bot.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+                <p class="sm:m-8 text-lg">{{bot1_text}}</p>
+                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+              </div>
+        </div>
+        <div class="carousel-item carousel-item--next control-next">
+              <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+                <h3 class="text-xl font-bold m-8">{{bot2_title}}</h3>
+                <img src="media/blog_12747824.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+                <p class="sm:m-8 text-lg">{{bot2_text}}</p>
+                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+              </div>
+        </div>
+        <div class="carousel-item">
+              <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+                <h3 class="text-xl font-bold m-8">{{bot3_title}}</h3>
+                <img src="media/coding_10971760.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+                <p class="sm:m-8 text-lg">{{bot3_text}}</p>
+                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+              </div>
+        </div>
+        <div class="carousel-item">
+              <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+                <h3 class="text-xl font-bold m-8">{{bot4_title}}</h3>
+                <img src="media/engagement_9583357.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+                <p class="sm:m-8 text-lg">{{bot4_text}}</p>
+                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+              </div>
+        </div>
+        <div class="carousel-item">
+              <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+                <h3 class="text-xl font-bold m-8">{{bot5_title}}</h3>
+                <img src="media/q-a_17569472.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+                <p class="sm:m-8 text-lg">{{bot5_text}}</p>
+                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+              </div>
+        </div>
+        <div class="carousel-item">
+          <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+            <h3 class="text-xl font-bold m-8">{{bot6_title}}</h3>
+            <img src="media/email_8717952.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+            <p class="sm:m-8 text-lg">{{bot6_text}}</p>
+            <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+              <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+                <h3 class="text-xl font-bold m-8">{{bot7_title}}</h3>
+                <img src="media/video-conference_10690269.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+                <p class="sm:m-8 text-lg">{{bot7_text}}</p>
+                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+              </div>
+        </div>
+        <div class="carousel-item">
+              <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+                <h3 class="text-xl font-bold m-8">{{bot8_title}}</h3>
+                <img src="media/conveyor-belt_15309756.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+                <p class="sm:m-8 text-lg">{{bot8_text}}</p>
+                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+              </div>
+        </div>
+        <div class="carousel-item carousel-item--prev control-prev">
+          <div class="text-gray-600 text-center bg-white rounded-lg shadow-lg p-1 sm:p-8">
+            <h3 class="text-xl font-bold m-8">{{bot9_title}}</h3>
+            <img src="media/hr_10051251.gif" class="w-32 h-32 mx-auto" alt="Icon" />
+            <p class="sm:m-8 text-lg">{{bot9_text}}</p>
+            <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+          </div>      
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<div id="examples"></div>
+
+
+
+
+
+
+<!-- PRESENTATIONS -->
+
+
+<section class="flex flex-col items-center justify-center mt-4">
+  <div presentations>
+  </div>
+</section>
+    
+<script>
+  function initPresses(p){
+    const presentationsBlocks = document.querySelectorAll('[presentations]');
+    presentationsBlocks.forEach((presentations,i) => {
+      presentations.innerHTML = '';
+      const textToHtml = (t) => t.replaceAll('\n', '<br>');
+      p.map((pres,j)=>{
+        const div = document.createElement('div');
+        div.classList = 'relative w-full overflow-hidden py-6 md:my-6';
+        div.innerHTML = `
+<a href="#contact">
+  <div id="presentation${i}-${j}" class="presentation flex items-center overflow-x-scroll scroll-smooth">
+    ${pres.map((slide, o) => `<div class="w-screen h-full my-18 flex-shrink-0 flex gap-8 flex-col-reverse md:flex-row items-center justify-center">
+      <div class="w-full lg:w-6/12 lg:pl-14 relative px-24 text-white text-center md:text-left">
+        <h2 class="${!o? 'text-3xl md:text-5xl': 'text-3xl'} font-bold mb-4">${textToHtml(slide.title)}</h2>
+        <p class="mb-8 text-xl">${textToHtml(slide.d)}</p>
+      </div>
+      <div class="w-1/5 lg:w-2/12">
+        <img src="${slide.img}" alt="Описание изображения" class="w-full h-full object-contain mx-auto" />
+      </div>
+    </div>`).join('\n')}
+  </div>
+</a>
+<button onclick="prevSlide('presentation${i}-${j}')" class="absolute left-6 md:left-16 top-1/2 transform -translate-y-1/2 text-white p-4 text-2xl" style="background: rgba(31, 41, 55, 0.5);">❮</button>
+<button onclick="nextSlide('presentation${i}-${j}')" class="absolute right-6 md:right-16 top-1/2 transform -translate-y-1/2 text-white p-4 text-2xl" style="background: rgba(31, 41, 55, 0.5);">❯</button>
+
+${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex justify-center">
+  <div class="flex justify-center items-center gap-4">
+    <a href="#contact" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span>{{cta_button}}</span>
+    </a>
+  </div>
+</div>`}
+`
+       
+        presentations.appendChild(div);
+      })
+      new Array(20).fill('').map((_,i) => {
+        const div = document.createElement('div');
+        div.id = `presentation${i}`
+        presentations.appendChild(div);
+      })
+    })
+  }
+  
+  function prevSlide(presentationId) {
+      const carousel = document.getElementById(presentationId);
+      carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
+  }
+  function nextSlide(presentationId) {
+      const carousel = document.getElementById(presentationId);
+      carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
+  }
+</script>
+
+
+
+
+
+
+<!-- HISTORYS -->
+<!-- 
+<section class="histories md:py-20 text-sky-100">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start xl:items-center">
+    <div class="w-full lg:w-1/2 p-8" data-aos="fade-right" data-aos-duration="5000" data-aos-once="true">
+      <object data="media/Evelin.svg" type="image/svg+xml" class="w-1/2 h-auto mx-auto"></object>
+    </div>
+    <div class="w-full lg:w-1/2 lg:pl-12 relative p-8" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+      <h2 class="text-3xl font-bold mb-4">{{history1_title}}</h2>
+      <p class="mb-8 text-md">{{history1_text}}</p>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-start xl:items-center">
+    <div class="w-full lg:w-1/2 lg:pl-12 relative p-8" data-aos="fade-up" data-aos-duration="3400" data-aos-once="true">
+      <h2 class="text-3xl font-bold mb-4">{{history2_title}}</h2>
+      <p class="mb-8 text-md">{{history2_text}}</p>
+    </div>
+    <div class="w-full lg:w-1/2 p-8" data-aos="fade-left" data-aos-duration="3400" data-aos-once="true">
+      <object data="media/Mark.svg" type="image/svg+xml" class="w-1/2 h-auto mx-auto"></object>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start xl:items-center">
+    <div class="w-full lg:w-1/2 p-8" data-aos="fade-right" data-aos-duration="5000" data-aos-once="true">
+      <object data="media/Alina.svg" type="image/svg+xml" class="w-1/2 h-auto mx-auto"></object>
+    </div>
+    <div class="w-full lg:w-1/2 lg:pl-12 relative p-8" data-aos="fade-up" data-aos-duration="5000" data-aos-once="true">
+      <h2 class="text-3xl font-bold mb-4">{{history3_title}}</h2>
+      <p class="mb-8 text-md">{{history3_text}}</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="flex justify-center items-center gap-4">
+  <a href="#contact" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span>{{cta_button}}</span>
+  </a>
+</div> -->
+
+
+
+
+
+<!-- CONTACTS BLOcK -->
+<div id="contact"></div>
+
+<section class="bg-gray-950 m-4 mt-40 my-20 md:m-20 text-white">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col md:flex-row items-center md:justify-between">
+    <div class="md:w-1/3 space-y-8 text-center">
+      <h2 class="text-3xl font-bold">{{contacts_title}}</h2>
+      <div class="flex flex-col items-start space-y-4 w-48 mx-auto">
+        <a href="https://t.me/exitar1906" class="flex flex-col gap-4 justify-center items-center bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full w-48 h-48">
+          <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon w-16 h-16" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1">
+            <path d="M834.24 127.872a95.168 95.168 0 0 0-29.856 7.136h-0.128c-9.12 3.616-52.48 21.856-118.4 49.504l-236.224 99.488c-169.504 71.36-336.128 141.632-336.128 141.632l1.984-0.768s-11.488 3.776-23.488 12a64.96 64.96 0 0 0-18.752 18.144c-5.888 8.64-10.624 21.856-8.864 35.52 2.88 23.104 17.856 36.96 28.608 44.608 10.88 7.744 21.248 11.36 21.248 11.36h0.256l156.256 52.64c7.008 22.496 47.616 156 57.376 186.752 5.76 18.368 11.36 29.856 18.368 38.624 3.392 4.48 7.36 8.224 12.128 11.232a35.808 35.808 0 0 0 7.872 3.392l-1.6-0.384c0.48 0.128 0.864 0.512 1.216 0.64 1.28 0.352 2.144 0.48 3.776 0.736 24.736 7.488 44.608-7.872 44.608-7.872l1.12-0.896 92.256-84 154.624 118.624 3.52 1.504c32.224 14.144 64.864 6.272 82.112-7.616 17.376-13.984 24.128-31.872 24.128-31.872l1.12-2.88 119.488-612.128c3.392-15.104 4.256-29.248 0.512-42.976a57.824 57.824 0 0 0-24.992-33.504 59.904 59.904 0 0 0-34.144-8.64z m-3.232 65.6c-0.128 2.016 0.256 1.792-0.64 5.664v0.352l-118.368 605.76c-0.512 0.864-1.376 2.752-3.744 4.64-2.496 1.984-4.48 3.232-14.88-0.896l-189.12-144.992-114.24 104.128 24-153.28 308.992-288c12.736-11.84 8.48-14.336 8.48-14.336 0.896-14.528-19.232-4.256-19.232-4.256l-389.632 241.376-0.128-0.64-186.752-62.88v-0.128l-0.48-0.096a8.64 8.64 0 0 0 0.96-0.384l1.024-0.512 0.992-0.352s166.752-70.272 336.256-141.632c84.864-35.744 170.368-71.744 236.128-99.52 65.76-27.616 114.368-47.872 117.12-48.96 2.624-1.024 1.376-1.024 3.264-1.024z"/>
+          </svg>    
+          
+          <div>{{contacts_tg}}</div>
+        </a>
+        <!-- <a open-chat-modal ... -->
+        <a href="https://wa.me/995599180246 " class="flex flex-col gap-4 justify-center items-center bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full w-48 h-48">
+          <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- <path d="M22 12h-4l-3 9L9 3l-3 9H2" /> -->
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          <div>{{contacts_wap}}</div>
+        </a>
+      </div>
+    </div>
+    <div class="md:w-2/3 bg-gray-800 rounded-lg shadow-lg p-6 mt-8 sm:m-8 md:mx-12 md:mt-24 ">
+      <h2 class="text-2xl font-bold mb-4">{{form_title}}</h2>
+      <form id="form" class="space-y-4">
+        <div>
+          <label  class="block font-medium text-gray-300 mb-1">{{form_name}}</label>
+          <input type="text" id="name" name="name" class="w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-white" required>
+        </div>
+        <div>
+          <label  class="block font-medium text-gray-300 mb-1">{{form_contact}}</label>
+          <input type="text" name="contact" class="w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-white" required>
+        </div>
+        <div>
+          <label  class="block font-medium text-gray-300 mb-1">{{form_comment}}</label>
+          <textarea id="comment" name="comment" rows="3" class="w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-white"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition-colors duration-300"
+        >{{form_btn}}</button>
+      </form>
+      <div id="form-send" style="height: 277px; margin-bottom: 30px;" class="flex flex-col justify-center items-center hidden">
+        <img src="media/clarity--form-line.svg" class="w-16 h-16 my-6" alt="Icon" />
+        <p class="text-lg text-center">{{form_send}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ACCARDION -->
+
+<div id="faq"></div>
+  <section class="pt-4 md:py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-20">
+      <h2 class="text-3xl text-white font-bold mb-16 text-center">{{faq_title}}</h2>
+      <div class="accordion">
+
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq1_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq1_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq2_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq2_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq3_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq3_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq4_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq4_answer}}</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq5_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq5_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq6_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq6_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq7_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq7_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq8_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq8_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq9_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq9_answer}}</p>
+          </div>
+        </div>
+
+        <div class="accordion-item m-4 sm:mx-16">
+          <div class="accordion-header">
+            <h3 class="text-xl font-bold">{{faq10_question}}</h3>
+            <button class="accordion-btn">
+              <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+          </div>
+          <div class="accordion-content">
+            <p class="mb-4">{{faq10_answer}}</p>
+          </div>
+        </div>
+        <!-- Остальные вопросы и ответы -->
+      </div>
+    </div>
+    <div id="contact"></div>
+  </section>
+  
+
+
+
+  <div class="flex justify-center items-center gap-4">
+    <a href="#contact" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span>{{cta_button}}</span>
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+<!-- Модальное окно -->
+<div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center hidden" id="chat-modal">
+  <div class="bg-gray-900 border-2 border-gray-600 rounded-lg shadow-lg w-full max-w-2xl p-4">
+    <div id="chat-container" class="space-y-4 h-full overflow-y-auto scrollbar-thin p-2" style="height: 80vh; max-height: 520px; scrollbar-width: thin; scrollbar-color: #4a5568 rgba(0,0,0,0)">
+      
+      <div class="flex items-start">
+        <div class="bg-gray-800 rounded-lg p-3">
+          <p class="text-white">{{dialog_first}}</p>
+        </div>
+      </div>
+      <!-- <div class="flex items-start justify-end">
+        <div class="bg-indigo-900 rounded-lg p-3">
+          <p class="text-white">Здравствуйте! У меня есть вопрос...</p>
+        </div>
+      </div> -->
+      
+      
+    </div>
+    <div class="mt-4 flex">
+      <input type="text" class="w-full bg-gray-800 border-gray-600 rounded-md shadow-sm focus:bg-indigo-950 text-white p-2" placeholder="your message">
+      <button class="bg-indigo-900 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-md ml-2">
+        send
+      </button>
+    </div>
+  </div>
+</div>
+<script defer>
+  function initChat(){
+    const chatModal = document.getElementById('chat-modal');
+    const chat = document.getElementById('chat-container');
+    const fmsg = chat.getElementsByTagName('div')[0];
+    const sendBtn = chatModal.getElementsByTagName('button')[0];
+    const input = chatModal.getElementsByTagName('input')[0];
+    const chatStorage = {
+      get dialog(){
+        return JSON.parse(window.sessionStorage.getItem('chat')||'[]');
+      },
+      set dialog(dialog){
+        if(!Array.isArray(dialog)) throw Error('chatStorage Error: dialog mast be an array')
+        window.sessionStorage.setItem('chat', JSON.stringify(dialog));
+      },
+      add(text, isUser){
+        window.sessionStorage.setItem('chat', JSON.stringify([
+          ...JSON.parse(window.sessionStorage.getItem('chat')||'[]'),
+          {role: isUser? 'user' : 'assistant', content: text}
+        ]))
+      }
+    }
+    const add = (text, isUser, isPrev) => {
+      let newMsg = fmsg.cloneNode(true);
+      if(isUser){
+        newMsg.classList.add("justify-end");
+        const c = newMsg.getElementsByTagName('div')[0];
+        c.classList.add("bg-indigo-900");
+        c.classList.remove("bg-gray-800");
+        input.value = '';
+      }
+      newMsg.getElementsByTagName('p')[0].innerHTML = text.replaceAll('\\n','<br>').replaceAll('\n','<br>');
+      chat.appendChild(newMsg);
+      chat.scroll(0, 99999999);
+      if(!isPrev) chatStorage.add(text, isUser);
+    }
+    chatStorage.dialog.forEach(it=>add(it.content, it.role=='user', true));
+
+    const send = async function(){
+      const text = input.value;
+      if(!text.length) return;
+      add(text, true);
+      // metadata[webclient]=web&
+      let results = [];
+      console.log('!!! ',[{role: 'assistant', content: '/start'}, ...chatStorage.dialog].map(m=>({...m, text: m.content})));
+      const resp = await fetch('https://coral-app-s6ege.ondigitalocean.app/integrations/api/dialog?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjM2NDgxYzFjYzMxYzY1NTNkM2Y0ZjgiLCJpYXQiOjE3Mjg5MTQ3ODJ9.69HRiwJ56X1sUWdyJ5W1Fz_ZQHEZfHn-k5PWOBXr-gs',{
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          trigger: 'SiteAI-M',
+          dialog: [{role: 'assistant', content: '/start'}, ...chatStorage.dialog]
+        })
+      })
+      if(resp.ok) results = await resp.json();
+      console.log(results);
+      results.forEach(text => add(text));
+    }
+    const listenEnter = function (e) {
+      if (e.key === 'Enter') send()
+    }
+
+    document.querySelectorAll('[open-chat-modal]').forEach(btn => btn.addEventListener('click', () => {
+      chatModal.classList.remove('hidden');
+      document.addEventListener('keypress', listenEnter); 
+    }));
+    chatModal.addEventListener('click', (event) => {
+      if (event.target.id !== 'chat-modal') return;
+      chatModal.classList.add('hidden');
+      document.removeEventListener('keypress', listenEnter); 
+    });
+
+    sendBtn.addEventListener('click',send);
+
+  }
+  initChat();
+</script>
+
+
+
+<footer class="bg-gray-900 text-gray-500 py-8 mt-40">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col gap-2 justify-between items-center">
+      <p class="text-sm">
+        All information on the site is created for informational purposes only and is not a public offer. (see <a href="https://github.com/AI-M-chats/docs/blob/main/use_rules.md" class="text-gray-300 hover:text-gray-200">user agreement</a>)
+      </p>
+      <div class="flex flex-wrap items-center md:space-x-4 mt-4 md:mt-0">
+        <p class="text-sm">For the open source icon designer,</p><p>and for the animated icons</p><p>thanks to:</p>
+        <a href="https://iconify.design" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="47" height="22" viewBox="64 0 100 40"><script xmlns="" src="chrome-extension://hoklmmgfnpapgjgcpechhaamimifchmp/frame_ant/frame_ant.js"/>
+            <circle cx="77.5" cy="2.5" r="1.5" fill="#f55b50"/>
+            <circle cx="135.5" cy="2.5" r="1.5" fill="#7f7f7f"/>
+            <g fill="none" stroke-linecap="round" stroke-width="3">
+                    <g stroke="#f55b50">
+                            <path d="M94.5962 8.4038C92.0578 5.86539 87.9422 5.86539 85.4038 8.4038C82.8654 10.9422 82.8654 15.0578 85.4038 17.5962C87.9422 20.1346 92.0578 20.1346 94.5962 17.5962"/>
+                            <path d="M77.5 7.5V19.5"/>
+                            <circle cx="106" cy="13" r="6.5"/>
+                            <path d="M129.5 19.5C129.5 16.525 129.5 14.025 129.5 12C129.5 8.96243 127.038 6.5 124 6.5C120.962 6.5 118.5 8.96243 118.5 12C118.5 14.025 118.5 16.525 118.5 19.5"/>
+                    </g>
+                    <g stroke="#7f7f7f">
+                            <path d="M135.5 7.5V19.5"/>
+                            <path d="M149.5 2.5C147.962 2.5 146.795 2.5 146 2.5C143.5 2.5 141.5 4.5 141.5 7C141.5 8.66667 141.5 12.8333 141.5 19.5"/>
+                            <path d="M145 11.5h2.5"/>
+                            <path d="M153.5 6.5C153.5 8.16667 153.5 9.83333 153.5 11.5C153.5 14 155 15.5 157.5 15.5C157.73 15.5 158.23 15.5 159 15.5"/>
+                            <path d="M154.5 22.5C156.371 22.5 157.704 22.5 158.5 22.5C160.5 22.5 162.5 20.5 162.5 18.5C162.5 17.1667 162.5 13.1667 162.5 6.5"/>
+                    </g>
+            </g>
+            <g fill="#2d9cf4">
+                    <circle cx="74" cy="37" r="1"/>
+                    <circle cx="108" cy="27" r="1"/>
+            </g>
+            <path d="M80 37a5 5 0 0 0 0-10h-3v10h3Zm15 0h-4c-1 0-2-1-2-2v-6c0-1 1-2 2-2h4m-4 5h3m10-2.5a2.5 2.5 0 1 0-2.5 2.5M99 34.5a2.5 2.5 0 1 0 2.5-2.5m6.5 5v-7M120.999 29c-.151-.18-.29-.361-.463-.535a5.001 5.001 0 1 0 .463 6.537V33H120m5 4V27l7 10V27" fill="none" stroke="#2d9cf4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </a>
+        <p>and</p>
+        <a href="https://www.freepik.com" target="_blank">
+          <svg width="27" height="12" fill="#1273EB" class="h-7 w-auto" aria-labelledby="logo-:R2iqbm:" viewBox="0 0 712 105" xmlns="http://www.w3.org/2000/svg"><path d="M188.21 66.26C187.89 65.93 188.12 65.38 188.58 65.38H190.54C190.54 65.38 190.63 65.38 190.68 65.38C207.77 63.64 222.05 52.6 222.05 33.01C222.05 10.44 203.84 0.0100098 182.98 0.0100098H85.28C83.97 0.0100098 82.9 1.07001 82.9 2.39001V102.54C82.9 103.85 83.96 104.92 85.28 104.92H116.48C117.79 104.92 118.86 103.86 118.86 102.54V70.56C118.86 69.25 119.92 68.18 121.24 68.18H141.52C144.33 68.18 147.01 69.39 148.88 71.49L177.77 104.11C178.39 104.39 178.93 104.63 179.55 104.91H220.73C222.84 104.91 223.9 102.37 222.42 100.86L188.22 66.26H188.21ZM175.2 44.68H121.23C119.92 44.68 118.85 43.62 118.85 42.3V27.13C118.85 25.82 119.91 24.75 121.23 24.75H174.42C182.05 24.75 187.03 28.49 187.03 34.4C187.03 41.25 182.36 44.67 175.2 44.67V44.68Z"></path><path d="M582.55 0.0100098H551.36C550.046 0.0100098 548.98 1.07557 548.98 2.39001V68.87C548.98 70.1844 550.046 71.25 551.36 71.25H582.55C583.864 71.25 584.93 70.1844 584.93 68.87V2.39001C584.93 1.07557 583.864 0.0100098 582.55 0.0100098Z"></path><path d="M582.55 85.41H551.36C550.046 85.41 548.98 86.4756 548.98 87.79V102.54C548.98 103.854 550.046 104.92 551.36 104.92H582.55C583.864 104.92 584.93 103.854 584.93 102.54V87.79C584.93 86.4756 583.864 85.41 582.55 85.41Z"></path><path d="M711.02 101.78L670.88 48.63C669.98 47.44 670.06 45.79 671.06 44.69L708.97 3.11001C710.05 1.92001 709.21 0.0100098 707.6 0.0100098H674.8C673.93 0.0100098 673.1 0.380012 672.52 1.02001L635.92 41.25H635.9C635.78 41.38 635.62 41.48 635.42 41.48H634.1C633.75 41.48 633.48 41.2 633.47 40.86V2.2C633.47 0.990005 632.49 0.0100098 631.28 0.0100098H601.29C600.08 0.0100098 599.1 0.990005 599.1 2.2V102.6C599.1 103.71 600 104.61 601.11 104.61H631.45C632.56 104.61 633.46 103.71 633.46 102.6V83.91C633.46 83.13 633.76 82.37 634.29 81.8L647.61 67.55C647.61 67.55 647.73 67.37 648 67.37H649.8C650.02 67.37 650.15 67.55 650.15 67.55L676.99 103.37C677.57 104.15 678.49 104.61 679.46 104.61H709.6C711.06 104.61 711.9 102.94 711.01 101.77L711.02 101.78Z"></path><path d="M270.58 23.98H301.09C302.4 23.98 303.47 22.92 303.47 21.6V2.38C303.47 1.07 302.41 0 301.09 0H237.98C236.67 0 235.6 1.06 235.6 2.38V102.53C235.6 103.84 236.66 104.91 237.98 104.91H301.09C302.4 104.91 303.47 103.85 303.47 102.53V83.31C303.47 82 302.41 80.93 301.09 80.93H270.36C269.05 80.93 267.98 79.87 267.98 78.55V66.09C267.98 64.66 269.14 63.49 270.58 63.49H301.09C302.4 63.49 303.47 62.43 303.47 61.11V42.36C303.47 41.05 302.41 39.98 301.09 39.98H270.58C269.15 39.98 267.98 38.82 267.98 37.38V26.54C267.98 25.11 269.14 23.94 270.58 23.94V23.98Z"></path><path d="M352.6 23.98H383.11C384.42 23.98 385.49 22.92 385.49 21.6V2.38C385.49 1.07 384.43 0 383.11 0H320C318.69 0 317.62 1.06 317.62 2.38V102.53C317.62 103.84 318.68 104.91 320 104.91H383.11C384.42 104.91 385.49 103.85 385.49 102.53V83.31C385.49 82 384.43 80.93 383.11 80.93H352.38C351.07 80.93 350 79.87 350 78.55V66.09C350 64.66 351.16 63.49 352.6 63.49H383.11C384.42 63.49 385.49 62.43 385.49 61.11V42.36C385.49 41.05 384.43 39.98 383.11 39.98H352.6C351.17 39.98 350 38.82 350 37.38V26.54C350 25.11 351.16 23.94 352.6 23.94V23.98Z"></path><path d="M35.87 23.98H66.38C67.69 23.98 68.76 22.92 68.76 21.6V2.38C68.76 1.07 67.7 0 66.38 0H3.27001C1.96001 0 0.890015 1.06 0.890015 2.38V102.53C0.890015 103.84 1.95001 104.91 3.27001 104.91H30.88C32.19 104.91 33.26 103.85 33.26 102.53L33.28 66.1C33.28 64.67 34.44 63.5 35.88 63.5H66.39C67.7 63.5 68.77 62.44 68.77 61.12V42.37C68.77 41.06 67.71 39.99 66.39 39.99H35.88C34.45 39.99 33.28 38.83 33.28 37.39V26.55C33.28 25.12 34.44 23.95 35.88 23.95L35.87 23.98Z"></path><path d="M496.49 0.0100098H402.03C400.72 0.0100098 399.65 1.07001 399.65 2.39001V102.54C399.65 103.85 400.71 104.92 402.03 104.92H433.23C434.54 104.92 435.61 103.86 435.61 102.54V69.39C435.61 68.72 436.15 68.18 436.82 68.18H496.65C520.63 68.18 538.8 55.68 538.8 33.61C538.8 11.54 520.63 0.0100098 496.5 0.0100098H496.49ZM491.95 44.68H437.98C436.67 44.68 435.6 43.62 435.6 42.3V27.13C435.6 25.82 436.66 24.76 437.98 24.76H491.17C498.8 24.76 503.78 28.49 503.78 34.41C503.78 41.26 499.11 44.68 491.95 44.68Z"></path></svg>
+        </a>
+        <p>respectively.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+<script>
+
+  // Carusel
+  function initCarusel(){
+    let currentSlide = 1;
+    const carouselItemsArray = Array.from(document.querySelectorAll('.carousel-item'));
+
+    function prev() {
+      currentSlide -= 1;
+      updateCarousel();
+    }
+    
+    function next() {
+      currentSlide += 1;
+      updateCarousel();
+    }
+
+    document.querySelector('.carousel-item.control-prev').addEventListener('click', prev);
+    document.querySelector('.carousel-item.control-next').addEventListener('click', next);
+
+    function updateCarousel() {
+      console.log('AAA');
+      
+      const getCI = (n) => (n<0? carouselItemsArray.length: 0)+n%carouselItemsArray.length; 
+
+      document.querySelector('.carousel-item.control-prev').removeEventListener('click', prev);
+      document.querySelector('.carousel-item.control-next').removeEventListener('click', next);
+      
+      carouselItemsArray.forEach((item, index) => {
+        item.classList.remove('carousel-item--active', 'carousel-item--prev', 'carousel-item--next','control-prev','control-next');
+        if (index === getCI(currentSlide)) {
+          item.classList.add('carousel-item--active');
+        } else if (index === getCI(currentSlide-1)) {
+          item.classList.add('carousel-item--prev');
+          item.classList.add('control-prev');
+        } else if (index === getCI(currentSlide+1)) {
+          item.classList.add('carousel-item--next');
+          item.classList.add('control-next');
+        }
+      });
+
+    document.querySelector('.carousel-item.control-prev').addEventListener('click', prev);
+    document.querySelector('.carousel-item.control-next').addEventListener('click', next);
+    }
+
+
+    // add touchscreen swipe
+    const card = document.querySelector('.carousel');
+    // Начальные координаты касания
+    let startX = 0;
+    let startY = 0;
+    // Функция для обработки начала касания
+    card.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    });
+    // Функция для обработки окончания касания
+    card.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+
+        // Вычисляем разницу координат
+        const diffX = endX - startX;
+        const diffY = endY - startY;
+
+        // Проверяем, что свайп был горизонтальным (по оси X)
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 50) next();
+            if (diffX < -50) prev();
+        }
+    });
+
+
+
+  }
+// ---
+
+// Accardeon
+  function initAccardeon(){
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    accordionItems.forEach((item) => {
+      const btn = item.querySelector('.accordion-header');
+      btn.addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
+  }
+// ---
+
+// SendForm
+  function sendForm(){
+    const form = document.getElementsByTagName('form')[0];
+    console.log(form);
+    
+    form.addEventListener('submit', async (e) => {
+      console.log('Submit', form);
+      
+      e.preventDefault();
+      const data = {
+        name: form.querySelector('#name').value,
+        contact: form.querySelector('#contact').value,
+        comment: form.querySelector('#comment').value,
+      }
+      
+      await Promise.all(['323811652','545077453'].map(chat_id => {
+        return fetch(`https://api.telegram.org/bot${'7231741401:AAFw5YIgblEphuWa5ZYV7wExnmM-5mt2vdg'}/sendMessage`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    chat_id,
+                    text: `SiteForm send \n\`\`\`\n${JSON.stringify(data)}\n\`\`\`_`,
+                  })
+                });
+      }))
+
+      document.getElementById('form').classList.add('hidden');
+      document.getElementById('form-send').classList.remove('hidden');
+
+    })
+  }
+// --- tgSMM
+
+// Languages
+const languages = {
+  ru: {
+    presentations: [
+    [
+        {
+          title: "AI-ассистент для заявок с Yelp и Thumbtack",
+          d: `Клиенты пишут — бот мгновенно отвечает, уточняет детали и передаёт вам готовую заявку.
+ Вы получаете всё важное — без ручной рутины.`,
+          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_10.png"
+        },
+        {
+          title: "Как это работает",
+          d: `1. Клиент оставляет заявку через Yelp или Thumbtack
+Бот отвечает в течение 15–30 секунд
+2. Выясняет услугу, имя, удобное время, адрес и контакт
+3. Отправляет вам заявку в Telegram, WhatsApp или таблицу
+`,
+          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_13.png"
+        },
+        {
+          title: "Что вы получаете",
+          d: ` – До 92% заявок обрабатываются без вашего участия
+ – 2–3 минуты — от запроса до готовой карточки
+ – 0 пропущенных обращений, даже ночью
+ – Скорость отклика увеличивается в 5 раз
+`,
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_37_09.png"
+        },
+        {
+          title: "Почему это выгодно",
+          d: `– Конверсия в клиента растёт на 35–50%
+ – Нагрузка на администратора снижается до 70%
+ – Вы освобождаете 2–4 часа в день
+ – Клиенты чувствуют заботу и реагируют быстрее
+`,
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_55_49.png"
+        },
+        {
+          title: "Бесплатная разработка — платите только за подписку",
+          d: ` Вы не платите за создание.
+ Подключаем, когда всё работает и приносит результат.`,
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+        }
+      ],
+      [
+        {
+          title: "AI-ассистент для мониторинга Telegram-чатов",
+          d: `Бот отслеживает нужные вам сообщения по ключевым словам в любых группах и сразу пересылает их вам.`,
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+        },
+        {
+          title: "Как это работает",
+          d: `1. Вы создаете задание
+2. Бот мониторит сотни чатов, а так же подключается к выбранным вами
+3. Когда находит совпадение — пересылает его вам в личку или CRM
+`,
+          img: "media/ChatGPT Image 14 июн. 2025 г., 20_03_13.png"
+        },
+        {
+          title: "Что вы получаете",
+          d: `– Только живые и тёплые запросы от реальных людей
+ – Возможность первыми ответить на нужный пост
+ – До десятков релевантных сообщений в день — всё зависит от чатов
+ – Работа без перерывов: бот читает чаты 24/7
+`,
+          img: "media/"
+        },
+        {
+          title: "Почему это выгодно",
+          d: `– Не нужно тратить деньги на рекламу
+ – Вы получаете лидов прямо из чатов, где уже есть спрос
+ – Мгновенное реагирование даёт преимущество перед конкурентами
+ – Бот делает работу мониторщика за вас
+`,
+          img: "media/"
+        },
+        {
+          title: "Бесплатная разработка — платите только за подписку",
+          d: `Никаких затрат на запуск.
+ Бот начинает работать, когда всё готово и согласовано с вами.
+`,
+          img: "media/"
+        }
+      ],
+      [
+        {
+          title: "AI-ассистент для Instagram и Facebook",
+          d: `Автоматизируйте переписку с клиентами в Direct и Messenger.
+ Бот отвечает мгновенно, собирает заявки и передаёт вам всё в удобном формате.`,
+          img: "media/"
+        },
+        {
+          title: "Как это работает",
+          d: `1. Клиент пишет в Instagram или Facebook
+2. Бот отвечает в течение 10–30 секунд
+3. Уточняет нужную услугу, имя, телефон, дату, фото и др.
+4. Формирует заявку и передаёт её вам — в Telegram, WhatsApp или таблицу
+`,
+          img: "media/"
+        },
+        {
+          title: "Что вы получаете",
+          d: ` – Ответ 24/7, даже ночью и в выходные
+ – Ни одной потерянной заявки
+ – Быстрая квалификация клиента без вашего участия
+ – Сокращение ручной переписки до минимума`,
+          img: "media/"
+        },
+        {
+          title: "Почему это выгодно",
+          d: `– Повышает доверие: клиенту отвечают сразу
+ – Освобождает время для работы, а не переписок
+ – Увеличивает конверсию в запись или покупку
+ – Подходит для салонов, магазинов, консультантов и услуг
+`,
+          img: "media/"
+        },
+        {
+          title: "Бесплатная разработка — платите только за подписку",
+          d: `Мы берём на себя настройку и запуск.
+ Оплачиваете только рабочее решение, когда всё готово.`,
+          img: "media/"
+        }
+      ],
+      [
+        {
+          title: "AI-ассистент для видеомаркетинга",
+          d: `Бот превращает текст в видео с говорящим ИИ-аватаром, генерирует озвучку, монтирует и выкладывает в соцсети и мессенджеры.`,
+          img: "media/"
+        },
+        {
+          title: "Что умеет бот",
+          d: `– Создаёт видео с виртуальным аватаром по вашему сценарию
+ – Генерирует озвучку на любом языке и тоне
+ – Добавляет фон, субтитры, музыку, лого
+ – Публикует готовый ролик в Instagram, Telegram, TikTok и другие платформы`,
+          img: "media/"
+        },
+        {
+          title: "Как это работает",
+          d: `1. Вы присылаете текст (или бот сам берёт его из CRM, лендинга или новостей)
+2. Бот превращает его в видео с озвучкой и визуалом
+3. Сохраняет ролик и отправляет на согласование
+4. Публикует в нужные каналы, соблюдая расписание
+`,
+          img: "media/"
+        },
+        {
+          title: "Преимущества",
+          d: `– Вы экономите до 10 часов в неделю на контент
+ – Видео выходят регулярно без вашего участия
+ – Стиль, голос и формат — в вашем бренде
+ – Аватар может вести блог, отвечать на вопросы и продавать 24/7`,
+          img: "media/"
+        },
+        {
+          title: "Бесплатная разработка — оплата только за подписку",
+          d: `Подходит экспертам, агентствам, школам, блогерам и бизнесам, которые хотят системный контент — без найма команды и ручной рутины.
+`,
+          img: "media/"
+        }
+      ],
+      [
+        {
+          "title": "AI-ассистент: Телеграм СММ-копирайтер",
+          "d": "Интеллектуальный ассистент, который пишет, находит актуальный контент и публикует посты в вашем Telegram-канале. Полностью автоматизирует ведение канала, освобождая ваше время.",
+          "img": ""
+        },
+        {
+          "title": "Как это работает",
+          "d": "1. Настраиваем источники: Вы задаете боту сайты, блоги, новости и другие ресурсы для анализа.\n2. Задаём расписание: Вы загружаете готовые посты или даете инструкции по их созданию и указываете график публикаций.\n3. Бот работает автономно: Он сам генерирует или выбирает контент, оформляет его и публикует точно в срок 24/7.",
+          "img": ""
+        },
+        {
+          "title": "Что вы получаете",
+          "d": "– Автономная работа 24/7: Настроил один раз — и канал ведётся сам.\n– Всегда актуальный контент: Бот мониторит новости и тренды, чтобы посты были свежими.\n– Строгое соблюдение графика: Никаких задержек и пропущенных публикаций.\n– Отсутствие человеческого фактора: Надежность и стабильность, которые не могут дать фрилансеры.",
+          "img": ""
+        },
+        {
+          "title": "Почему это выгодно",
+          "d": "– Экономия на SMM-специалисте: Решение дешевле фрилансера или штатного сотрудника.\n– Фокус на главном: Вы освобождаете время от рутины для стратегических задач.\n– Рост доверия аудитории: Регулярный и качественный контент прогревает клиентов.\n– Конкурентное преимущество: Автоматизация позволяет опередить тех, кто всё ещё делает это вручную.",
+          "img": ""
+        },
+        {
+          "title": "Бесплатная адаптация — платите только за подписку",
+          "d": "Мы адаптируем бота под ваши задачи и источники контента. Вы получаете готовое решение без затрат на запуск. Протестируйте бесплатно и платите, только когда убедитесь в результате.",
+          "img": ""
+        }
+      ],
+      [
+        {
+          title: "Кристина — владелица салона красоты в Нью-Йорке",
+          d: `Кристина устала отвечать на одни и те же вопросы в Instagram и пропускать клиентов, которые писали ночью.
+Для неё был разработан AI-ассистент, который 24/7 отвечает на частые вопросы (стоимость, услуги, адрес), записывает на процедуры, отправляет напоминания и собирает отзывы после визита.
+Теперь Кристина экономит до 4 часов в день и больше не теряет клиентов из-за того, что не успела ответить.
+`,
+          img: "media/Alina.svg"
+        },
+        {
+          title: "Алексей — иммиграционный консультант в Майами",
+          d: `Алексей ежедневно получал десятки однотипных сообщений: «Какие документы нужны?», «Сколько стоит кейс?», «Вы работаете с политубежищем?»
+Мы настроили AI-бота, который отвечает на типовые вопросы, помогает пройти предварительное анкетирование и собирает данные для консультации.
+Теперь Алексей тратит время только на клиентов, которые уже готовы к работе — и увеличил конверсию с обращений в оплаченные заявки на 40%.
+`,
+          img: "media/Mark.svg"
+        },
+        {
+          title: "Андрей — мастер по ремонту HVAC в Лос-Анджелесе",
+          d: `Андрей часто был в разъездах и не мог брать трубку. Из-за этого терялись клиенты.
+Для него мы настроили AI-бота, который принимает заявки, уточняет адрес, запрашивает фото поломки и предлагает свободные окна по расписанию.
+За первый месяц бот сгенерировал 18 новых заказов, которые раньше просто терялись в пропущенных звонках.
+`,
+          img: "media/Mark.svg"
+        },
+        {
+          title: "Ирина — владелица клинингового сервиса в Чикаго",
+          d: `Ирина вручную считала стоимость уборки, записывала заказы в блокнот и путалась в графике.
+AI-ассистент теперь автоматически рассчитывает цену по параметрам квартиры, записывает на удобное время, отправляет напоминания и принимает отзывы.
+Благодаря этому Ирина сократила количество ошибок и увеличила повторные заказы на 35%.
+`,
+          img: "media/Evelin.svg"
+        },
+        {
+          title: "Маргарита — владелица интернет-магазина на Shopify",
+          d: `Маргарита продавала товары через Shopify, но ежедневно теряла время на переписку: «А когда отправите?», «Можно изменить адрес?», «Где трек?»
+Для неё мы настроили AI-ассистента, который отвечает на все клиентские вопросы: показывает статус заказа, отправляет трек-номер, помогает оформить покупку и оформляет возвраты.
+Благодаря боту Маргарита сократила время на поддержку в 3 раза и повысила количество повторных покупок — клиенты довольны скоростью и вниманием.
+`,
+          img: "media/Alina.svg"
+        }
+      ]
+    ],
+    header_about: `О нас`,
+    header_solutions: `Решения`,
+    header_features: `Преимущества`,
+    header_examples: `Примеры`,
+    header_faq: `FAQ`,
+    header_contact: `Контакты`,
+    hero_title: `AI-ассистенты и автоматизация, которые приносят прибыль`,
+    hero_description: `Создаём умные решения, которые увеличивают продажи и снижают нагрузку. Вы занимаетесь бизнесом — мы берём на себя рутину.
+Бесплатная разработка — оплачивайте только подписку на готовое решение.
+`,
+    hero_button: `Оставить заявку`,
+    bots_title: `Наши решения`,
+    bots_btn: `Узнать больше`,
+    bot1_title: `Продажи и заявки`,
+    bot1_text: `AI-бот обрабатывает входящие обращения, консультирует, собирает контакты и закрывает клиента на заявку, бронь или покупку.`,
+    bot2_title: `Запись на приём`,
+    bot2_text: `Идеально для косметологов, стоматологов, массажистов и т.д. Бот отвечает на частые вопросы и записывает клиентов в календарь.`,
+    bot3_title: `Заказы на услуги`,
+    bot3_text: `AI принимает заявки на клининг, ремонт, доставку — сам уточняет адрес, время, объём работ и рассчитывает стоимость.`,
+    bot4_title: `Магазины и интернет-продажи`,
+    bot4_text: `Бот оформляет заказы, проверяет наличие, отправляет трек-номера и консультирует по доставке и возвратам.`,
+    bot5_title: `Лид-магниты и автоворонки`,
+    bot5_text: `AI-ассистент генерирует лидов через квизы, мини-опросы и консультации, прогревает и доводит до оплаты.`,
+    bot6_title: `Контент-маркетинг`,
+    bot6_text: `Бот пишет посты для Telegram или Instagram, составляет контент-план, следит за трендами и публикует автоматически.`,
+    bot7_title: `Email-рассылки`,
+    bot7_text: `AI собирает список контактов и отправляет персонализированные письма с предложениями, акциями и полезной информацией.`,
+    bot8_title: `Встроенный виджет на сайт`,
+    bot8_text: `На сайт ставится чат или форма с ботом, который отвечает клиенту и записывает его в CRM даже ночью.`,
+    bot9_title: `HR-бот для найма`,
+    bot9_text: `Бот собирает резюме, задаёт вопросы кандидатам, проводит первичный отбор и передаёт результаты в таблицу или Telegram.`,
+    asistent_title: `Рассчитайте стоимость с помощью AI-ассистента`,
+    about_text: `Узнайте, как работает решение, подойдёт ли оно вашему бизнесу и сколько это будет стоить. Наш AI-бот подскажет всё за пару минут — без звонков и ожидания.`,
+    feature1_title: `Без затрат на разработку`,
+    feature1_text: `Вы не тратите бюджет на создание. Платите только за использование.`,
+    feature2_title: `Рост продаж от 39%`,
+    feature2_text: `Бот мгновенно обрабатывает заявки, не теряет клиентов и помогает продавать больше — без расширения штата.`,
+    feature3_title: `Работа 24/7 без перерывов`,
+    feature3_text: `AI-ассистент отвечает, консультирует и продаёт круглосуточно — даже ночью, в выходные и праздники.`,
+    feature4_title: `Меньше ручной работы`,
+    feature4_text: `Бот берёт на себя рутину: заявки, ответы, напоминания и отчёты и т.д., чтобы вы сконцентрировались на развитии бизнеса.`,
+    feature5_title: `Полная автоматизация под ключ`,
+    feature5_text: `Не просто бот, а готовое решение: от общения с клиентами до интеграции с CRM и внутренними процессами.`,
+    feature6_title: `Интеграция со всеми каналами`,
+    feature6_text: `Telegram, WhatsApp, Instagram, сайт, чат на лендинге — бот работает там, где ваши клиенты уже общаются.`,
+    feature7_title: `Результат, который можно измерить`,
+    feature7_text: `Покажем конкретные цифры: сколько сэкономили, сколько обработали, сколько продали. Прозрачно и понятно.`,
+    feature8_title: `Поддержка и развитие`,
+    feature8_text: `Мы сопровождаем проект, дорабатываем и масштабируем бота под новые задачи и рост вашего бизнеса.`,
+    cta_button: `Связаться с нами`,
+    faq_title: `Часто задаваемые вопросы`,
+    faq1_question: `Какие задачи могут выполнять ваши ИИ-ассистенты?`,
+    faq1_answer: `Наши ИИ-ассистенты способны автоматизировать широкий спектр задач, таких как обработка запросов клиентов, управление контентом, создание маркетинговых кампаний, сбор и анализ данных и многие другие. Возможности действительно широки и мы готовы подобрать именно тот функционал, который подойдет под ваши конкретные задачи.`,
+    faq2_question: `Какие типы бизнесов могут использовать ваших ИИ-ассистентов?`,
+    faq2_answer: `Наши решения универсальны и подходят для различных отраслей: e-commerce, финансы, маркетинг, HR, логистика, образование и многое другое.`,
+    faq3_question: `Можем ли мы изменить или добавить функции ассистента после внедрения?`,
+    faq3_answer: `Да, наши ассистенты могут быть легко обновлены или расширены новыми функциями по мере изменения ваших бизнес-потребностей или стратегий.`,
+    faq4_question: `Могут ли ваши ИИ-ассистенты обучаться и улучшать свои действия со временем?`,
+    faq4_answer: `Да, многие наши ассистенты используют алгоритмы машинного обучения, что позволяет им становиться более эффективными по мере использования и анализа данных. Кроме того, ассистент может быть простроен таким образом, чтобы обучаться на основе взаимодействий с вами или вашими клиентами и учитывать историю этих взаимодействий в дальнейшем.`,
+    faq5_question: `Есть ли ограничения на количество пользователей, которые могут работать с ассистентом?`,
+    faq5_answer: `Нет, наши решения масштабируются в зависимости от ваших потребностей, и ассистенты могут поддерживать работу с любым количеством пользователей.`,
+    faq6_question: `Смогут ли ассистенты работать 24/7?`,
+    faq6_answer: `Да, наши ИИ-ассистенты работают круглосуточно, обеспечивая непрерывную поддержку и выполнение задач, даже когда сотрудники не на месте.`,
+    faq7_question: `Можно ли интегрировать ассистентов с социальными сетями и мессенджерами?`,
+    faq7_answer: `Да, наши ассистенты могут работать с популярными платформами, такими как Telegram, Instagram, WhatsApp и другими, чтобы взаимодействовать с клиентами через социальные сети и мессенджеры.`,
+    faq8_question: `Как долго занимает разработка ИИ-ассистента?`,
+    faq8_answer: `Разработка занимает обычно 2-4 недели, однако всё зависит от вашего конкретного запроса, мы готовы обрисовать сроки сразу же после обсуждения и формирования вашего личного технического задания.`,
+    faq9_question: `Сколько стоят ваши решения?`,
+    faq9_answer: `Каждый проект стоит по-разному, исходя из ваших индивидуальных потребностей. Однако мы сразу готовы заявить, что не берем денег за разработку, а взымаем помесячную оплату, устанавливаемую на основе договоренности в зависимости от сложности ассистента. Чтобы начать разработку комплексных решений, мы оставляем за собой право запросить плату в размере подписки от отдого до нескольких месяцев, которая впоследствии учитывается и продукт считается оплаченным на этот период.`,
+    faq10_question: `Как проходит наше взаимодействие?`,
+    faq10_answer: `Вы оставляете заявку по кнопке ниже.
+    Мы связываемся с вами и согласовываем ваше техническое задание.
+    Через оговоренное время мы предоставляем вам рабочий бот и даем время на правки.
+    После этого с учетом ваших пожеланий мы дорабатываем продукт и даем вам его финальную версию.`,
+    contacts_title: `Свяжитесь с нами`,
+    contacts_tg: `Telegram`,
+    contacts_wap: `Whatsapp`,
+    form_title: `Свяжитесь с нами`,
+    form_name: `Ваше имя`,
+    form_contact: `Telegram tag или номер телефона`,
+    form_comment: `Комментарий`,
+    form_btn: `Отправить`,
+    form_send: `Спасибо, ваша заявка успешно отправлена!`,
+    dialog_btn: `запустить на сайте`,
+    chat_modal_btn_text: "Нажмите на иконку, чтобы протестировать AI-ассистента",
+    dialog_first: `Я - Элис, умный помощник от AI-M, мы можем вместе подобрать и собрать индивидуальное решение конкретно для вас, а также рассчитать его стоимость. Я задам вам несколько вопросов, чтобы мы лучше поняли друг друга 😏. <br><br> Скажите, в какой сфере вы работаете?`,
+  },
+  "en": {
+    "presentations": [
+      [
+        {
+          "title": "AI Assistant for Leads from Yelp and Thumbtack",
+          "d": "Customers write—the bot instantly replies, clarifies details, and sends you a ready-to-go lead.\nYou get all the important info—without the manual routine.",
+          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_10.png"
+        },
+        {
+          "title": "How It Works",
+          "d": "1. A customer submits a request via Yelp or Thumbtack.\nThe bot replies within 15–30 seconds.\n2. It clarifies the service, name, convenient time, address, and contact info.\n3. It sends the lead to you in Telegram, WhatsApp, or a spreadsheet.",
+          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_13.png"
+        },
+        {
+          "title": "What You Get",
+          "d": "– Up to 92% of leads processed without your involvement\n– 2–3 minutes from request to a ready-made lead card\n– 0 missed inquiries, even at night\n– Response speed increases 5x",
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_37_09.png"
+        },
+        {
+          "title": "Why It's a Win",
+          "d": "– Customer conversion rate increases by 35–50%\n– Administrator's workload is reduced by up to 70%\n– You free up 2–4 hours a day\n– Customers feel cared for and respond faster",
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_55_49.png"
+        },
+        {
+          "title": "Free Development — Pay Only for the Subscription",
+          "d": "You don't pay for creation.\nWe launch it once everything is working and delivering results.",
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+        }
+      ],
+      [
+        {
+          "title": "AI Assistant for Monitoring Telegram Chats",
+          "d": "The bot tracks messages you need by keywords in any group and immediately forwards them to you.",
+          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+        },
+        {
+          "title": "How It Works",
+          "d": "1. You create a task.\n2. The bot monitors hundreds of chats and connects to the ones you choose.\n3. When it finds a match, it forwards it to your private messages or CRM.",
+          img: "media/ChatGPT Image 14 июн. 2025 г., 20_03_13.png"
+        },
+        {
+          "title": "What You Get",
+          "d": "– Only live and warm leads from real people\n– The ability to be the first to respond to relevant posts\n– Up to dozens of relevant messages per day—it all depends on the chats\n– Non-stop operation: the bot reads chats 24/7",
+          "img": ""
+        },
+        {
+          "title": "Why It's a Win",
+          "d": "– No need to spend money on advertising\n– You get leads directly from chats where demand already exists\n– Instant responses give you an edge over competitors\n– The bot does the monitoring work for you",
+          "img": ""
+        },
+        {
+          "title": "Free Development — Pay Only for the Subscription",
+          "d": "No upfront costs.\nThe bot starts working once everything is ready and approved by you.",
+          "img": ""
+        }
+      ],
+      [
+        {
+          "title": "AI Assistant for Instagram and Facebook",
+          "d": "Automate conversations with customers in Direct and Messenger.\nThe bot replies instantly, collects leads, and delivers everything to you in a convenient format.",
+          "img": ""
+        },
+        {
+          "title": "How It Works",
+          "d": "1. A customer messages you on Instagram or Facebook.\n2. The bot replies within 10–30 seconds.\n3. It clarifies the required service, name, phone number, date, photos, etc.\n4. It creates a lead and sends it to you—in Telegram, WhatsApp, or a spreadsheet.",
+          "img": ""
+        },
+        {
+          "title": "What You Get",
+          "d": "– 24/7 responses, even at night and on weekends\n– Not a single lost lead\n– Fast lead qualification without your involvement\n– Manual correspondence reduced to a minimum",
+          "img": ""
+        },
+        {
+          "title": "Why It's a Win",
+          "d": "– Builds trust: customers get an immediate response\n– Frees up time for work, not for messaging\n– Increases conversions to appointments or purchases\n– Suitable for salons, stores, consultants, and service providers",
+          "img": ""
+        },
+        {
+          "title": "Free Development — Pay Only for the Subscription",
+          "d": "We handle the setup and launch.\nYou only pay for a working solution once it's ready.",
+          "img": ""
+        }
+      ],
+      [
+        {
+          "title": "AI Assistant for Video Marketing",
+          "d": "The bot turns text into a video with a talking AI avatar, generates a voice-over, edits it, and posts it to social media and messengers.",
+          "img": ""
+        },
+        {
+          "title": "What the Bot Can Do",
+          "d": "– Creates videos with a virtual avatar based on your script\n– Generates voice-overs in any language and tone\n– Adds backgrounds, subtitles, music, and logos\n– Publishes the final video to Instagram, Telegram, TikTok, and other platforms",
+          "img": ""
+        },
+        {
+          "title": "How It Works",
+          "d": "1. You provide the text (or the bot gets it from your CRM, landing page, or news feed).\n2. The bot turns it into a video with a voice-over and visuals.\n3. It saves the video and sends it for approval.\n4. It publishes to the selected channels according to a schedule.",
+          "img": ""
+        },
+        {
+          "title": "Advantages",
+          "d": "– Save up to 10 hours a week on content creation\n– Videos are published regularly without your involvement\n– Style, voice, and format are all on-brand\n– The avatar can run a blog, answer questions, and sell 24/7",
+          "img": ""
+        },
+        {
+          "title": "Free Development — Pay Only for the Subscription",
+          "d": "Perfect for experts, agencies, schools, bloggers, and businesses that want consistent content—without hiring a team or dealing with manual routines.",
+          "img": ""
+        }
+      ],
+      [
+        {
+          "title": "AI Assistant: Telegram SMM Copywriter",
+          "d": "An intelligent assistant that writes, finds relevant content, and publishes posts on your Telegram channel. It fully automates channel management, freeing up your time.",
+          "img": ""
+        },
+        {
+          "title": "How It Works",
+          "d": "1. Configure Sources: You tell the bot which websites, blogs, news, and other resources to analyze.\n2. Set a Schedule: You upload ready-made posts or provide instructions for their creation and specify a publishing schedule.\n3. The Bot Works Autonomously: It generates or selects content on its own, formats it, and publishes it on time, 24/7.",
+          "img": ""
+        },
+        {
+          "title": "What You Get",
+          "d": "– Autonomous 24/7 Operation: Set it up once, and the channel runs itself.\n– Always Fresh Content: The bot monitors news and trends to keep posts current.\n– Strict Schedule Adherence: No delays or missed publications.\n– No Human Error: Reliability and stability that freelancers can't match.",
+          "img": ""
+        },
+        {
+          "title": "Why It's a Win",
+          "d": "– Save on an SMM Specialist: A solution cheaper than a freelancer or an in-house employee.\n– Focus on What Matters: You free up time from routine tasks for strategic goals.\n– Build Audience Trust: Regular, high-quality content nurtures your clients.\n– Competitive Advantage: Automation lets you get ahead of those still doing it manually.",
+          "img": ""
+        },
+        {
+          "title": "Free Adaptation — Pay Only for the Subscription",
+          "d": "We adapt the bot to your tasks and content sources. You get a ready-made solution with no setup costs. Test it for free and only pay when you're convinced of the results.",
+          "img": ""
+        }
+      ],
+      [
+        {
+          "title": "Kristina — Owner of a Beauty Salon in New York",
+          "d": "Kristina was tired of answering the same questions on Instagram and missing clients who messaged at night.\nAn AI assistant was developed for her that answers common questions (price, services, address) 24/7, books appointments, sends reminders, and collects feedback after visits.\nNow, Kristina saves up to 4 hours a day and no longer loses clients because she couldn't reply in time.",
+          "img": "media/Alina.svg"
+        },
+        {
+          "title": "Alexey — Immigration Consultant in Miami",
+          "d": "Alexey received dozens of similar messages every day: 'What documents are needed?', 'How much does a case cost?', 'Do you handle political asylum cases?'\nWe set up an AI bot that answers standard questions, helps with a preliminary questionnaire, and collects data for a consultation.\nNow, Alexey spends time only on clients who are ready to proceed—and has increased his conversion from inquiries to paid applications by 40%.",
+          "img": "media/Mark.svg"
+        },
+        {
+          "title": "Andrey — HVAC Repair Technician in Los Angeles",
+          "d": "Andrey was often on the road and couldn't answer his phone, which meant losing clients.\nWe set up an AI bot for him that takes service requests, confirms the address, asks for photos of the malfunction, and suggests available time slots from his schedule.\nIn the first month, the bot generated 18 new jobs that would have otherwise been lost to missed calls.",
+          "img": "media/Mark.svg"
+        },
+        {
+          "title": "Irina — Owner of a Cleaning Service in Chicago",
+          "d": "Irina used to manually calculate cleaning costs, write down orders in a notebook, and get mixed up with her schedule.\nAn AI assistant now automatically calculates the price based on apartment parameters, books convenient times, sends reminders, and collects reviews.\nThanks to this, Irina has reduced errors and increased repeat orders by 35%.",
+          "img": "media/Evelin.svg"
+        },
+        {
+          "title": "Margarita — Owner of a Shopify E-commerce Store",
+          "d": "Margarita sold products on Shopify but wasted time daily on messages like: 'When will you ship?', 'Can I change the address?', 'Where's the tracking number?'\nWe set up an AI assistant for her that answers all customer questions: it shows order status, sends tracking numbers, helps with purchases, and processes returns.\nThanks to the bot, Margarita has cut down on support time by 3x and increased repeat purchases—customers are happy with the speed and attention.",
+          "img": "media/Alina.svg"
+        }
+      ]
+    ],
+    header_about: "About Us",
+    header_solutions: "Solutions",
+    header_features: "Features",
+    header_examples: "Examples",
+    header_faq: "FAQ",
+    header_contact: "Contact",
+    hero_title: "AI Assistants and Automation That Drive Profit",
+    hero_description: "We create smart solutions that increase sales and reduce workload. You focus on your business—we handle the routine.\nFree development—pay only for the subscription to a ready-made solution.",
+    hero_button: "Submit a Request",
+    bots_title: "Our Solutions",
+    bots_btn: "Learn More",
+    bot1_title: "Sales and Leads",
+    bot1_text: "The AI bot processes incoming inquiries, provides consultations, collects contact information, and closes the deal for a request, booking, or purchase.",
+    bot2_title: "Appointment Booking",
+    bot2_text: "Ideal for cosmetologists, dentists, massage therapists, etc. The bot answers common questions and books clients into your calendar.",
+    bot3_title: "Service Orders",
+    bot3_text: "The AI takes requests for cleaning, repairs, delivery—it independently clarifies the address, time, scope of work, and calculates the cost.",
+    bot4_title: "E-commerce and Online Sales",
+    bot4_text: "The bot processes orders, checks availability, sends tracking numbers, and provides support on shipping and returns.",
+    bot5_title: "Lead Magnets and Sales Funnels",
+    bot5_text: "The AI assistant generates leads through quizzes, mini-surveys, and consultations, nurtures them, and guides them to payment.",
+    bot6_title: "Content Marketing",
+    bot6_text: "The bot writes posts for Telegram or Instagram, creates a content plan, follows trends, and publishes automatically.",
+    bot7_title: "Email Campaigns",
+    bot7_text: "The AI builds a contact list and sends personalized emails with offers, promotions, and useful information.",
+    bot8_title: "Embedded Website Widget",
+    bot8_text: "A chat or form with a bot is placed on your website, which responds to customers and saves them to your CRM, even at night.",
+    bot9_title: "HR Bot for Hiring",
+    bot9_text: "The bot collects resumes, asks candidates questions, conducts initial screening, and sends the results to a spreadsheet or Telegram.",
+    asistent_title: "Calculate the Cost with Our AI Assistant",
+    about_text: "Find out how the solution works, if it's right for your business, and how much it will cost. Our AI bot can tell you everything in a couple of minutes—no calls or waiting.",
+    feature1_title: "No Development Costs",
+    feature1_text: "You don't spend your budget on creation. You only pay for usage.",
+    feature2_title: "Sales Growth from 39%",
+    feature2_text: "The bot instantly processes leads, doesn't lose customers, and helps you sell more—without expanding your team.",
+    feature3_title: "24/7 Non-Stop Operation",
+    feature3_text: "The AI assistant responds, consults, and sells around the clock—even at night, on weekends, and during holidays.",
+    feature4_title: "Less Manual Work",
+    feature4_text: "The bot takes over routine tasks: leads, responses, reminders, reports, etc., so you can focus on growing your business.",
+    feature5_title: "Full Turnkey Automation",
+    feature5_text: "Not just a bot, but a complete solution: from customer communication to integration with your CRM and internal processes.",
+    feature6_title: "Integration with All Channels",
+    feature6_text: "Telegram, WhatsApp, Instagram, website, landing page chat—the bot works where your customers already are.",
+    feature7_title: "Measurable Results",
+    feature7_text: "We'll show you concrete numbers: how much you saved, how many leads were processed, how much you sold. Transparent and clear.",
+    feature8_title: "Support and Growth",
+    feature8_text: "We provide ongoing support for the project, refining and scaling the bot for new tasks and the growth of your business.",
+    cta_button: "Contact Us",
+    faq_title: "Frequently Asked Questions",
+    faq1_question: "What tasks can your AI assistants perform?",
+    faq1_answer: "Our AI assistants can automate a wide range of tasks, such as processing customer inquiries, managing content, creating marketing campaigns, collecting and analyzing data, and much more. The possibilities are truly broad, and we are ready to select the exact functionality that will suit your specific needs.",
+    faq2_question: "What types of businesses can use your AI assistants?",
+    faq2_answer: "Our solutions are versatile and suitable for various industries: e-commerce, finance, marketing, HR, logistics, education, and many more.",
+    faq3_question: "Can we change or add assistant functions after implementation?",
+    faq3_answer: "Yes, our assistants can be easily updated or expanded with new functions as your business needs or strategies change.",
+    faq4_question: "Can your AI assistants learn and improve their actions over time?",
+    faq4_answer: "Yes, many of our assistants use machine learning algorithms, which allows them to become more effective with use and data analysis. Additionally, an assistant can be designed to learn from interactions with you or your customers and consider this history in future interactions.",
+    faq5_question: "Are there any limits on the number of users who can work with the assistant?",
+    faq5_answer: "No, our solutions are scalable to your needs, and the assistants can support any number of users.",
+    faq6_question: "Can the assistants work 24/7?",
+    faq6_answer: "Yes, our AI assistants work around the clock, providing continuous support and task execution, even when employees are not available.",
+    faq7_question: "Can the assistants be integrated with social networks and messengers?",
+    faq7_answer: "Yes, our assistants can work with popular platforms like Telegram, Instagram, WhatsApp, and others to interact with customers through social media and messengers.",
+    faq8_question: "How long does it take to develop an AI assistant?",
+    faq8_answer: "Development usually takes 2-4 weeks, but it all depends on your specific request. We are ready to outline the timeline immediately after discussing and forming your personal technical specification.",
+    faq9_question: "How much do your solutions cost?",
+    faq9_answer: "Each project is priced differently based on your individual needs. However, we can state upfront that we do not charge for development, but rather a monthly subscription fee, established by agreement depending on the assistant's complexity. To begin the development of complex solutions, we reserve the right to request a fee equal to one to several months' subscription, which is then credited, and the product is considered paid for that period.",
+    faq10_question: "What is our collaboration process?",
+    faq10_answer: "You submit a request using the button below.\nWe contact you and agree on your technical specification.\nAfter the agreed time, we provide you with a working bot and give you time for revisions.\nAfter that, taking into account your wishes, we finalize the product and give you the final version.",
+    contacts_title: "Contact Us",
+    contacts_tg: "Telegram",
+    contacts_wap: "Whatsapp",
+    form_title: "Contact Us",
+    form_name: "Your Name",
+    form_contact: "Telegram tag or phone number",
+    form_comment: "Comment",
+    form_btn: "Send",
+    form_send: "Thank you, your request has been sent successfully!",
+    dialog_btn: "launch on site",
+    chat_modal_btn_text: "Click the icon to test the AI assistant",
+    dialog_first: "I'm Alice, a smart assistant from AI-M. Together, we can choose and build a custom solution specifically for you, and also calculate its cost. I'll ask you a few questions so we can better understand each other 😏. <br><br> To start, what industry do you work in?"
+  }
+}
+
+
+  let selectedLanguage = window.localStorage.getItem('lang')||document.getElementById('language-select').value;
+  
+
+  function setLang(){
+    let str = document.body.innerHTML;
+    const lang = languages[selectedLanguage];
+    document.body.innerHTML = Object.keys(lang).reduce((acc, key) => acc = acc.split(`{{${key}}}`).join(lang[key]),str);
+    document.getElementById('loader').remove();
+  }
+
+  function updateLang(lang){
+    // initPresses(languages[lang]?.presentations||{});
+    let str = document.body.innerHTML;
+    const oldLang = languages[selectedLanguage];    
+    document.body.innerHTML = Object.keys(oldLang).reduce((acc, key) => acc = acc.split(`>${oldLang[key]}<`).join(`>${languages[lang][key]}<`),str);
+    window.localStorage.setItem('lang', lang);
+    initCarusel();
+    initAccardeon();
+    initChat();
+    sendForm();
+    AOS.init();
+  }
+  function changeHandler(){
+    console.log('AAA');
+    const lang = this.value;
+    console.log(`Выбран язык: ${lang}`);
+    updateLang(lang);
+    selectedLanguage = lang;
+    document.getElementById('language-select').value = this.value
+    document.getElementById('language-select').addEventListener('change', changeHandler);
+  }
+
+  initPresses(languages[selectedLanguage]?.presentations||{});
+
+  setLang();
+  document.getElementById('language-select').addEventListener('change', changeHandler);
+  document.getElementById('language-select').value = selectedLanguage;
+  
+  initCarusel();
+  initAccardeon();
+  initChat();
+  sendForm();
+  AOS.init();
+</script>
+</html>
