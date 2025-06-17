@@ -319,8 +319,8 @@
     }
     .presentation-item {
         scroll-snap-align: start;
-        height: 100.57%;
-        width: 100%;
+        /* height: 100.57%;
+        width: 100%; */
         
     }
     @media (max-aspect-ratio: 5/4) {
@@ -407,10 +407,10 @@
         <nav>
           <ul class="flex flex-wrap space-x-1 md:space-x-4">
             <!-- <li class="hidden md:block"><a href="#about" class="hover:text-gray-400">{{header_about}}</a></li> -->
-            <li><a href="#solutions" class="hover:text-gray-400 text-sm md:text-base">{{header_solutions}}</a></li>
             <li class="hidden md:block"><a href="#features" class="hover:text-gray-400">{{header_features}}</a></li>
+            <li><a href="#solutions" class="hover:text-gray-400 text-sm md:text-base">{{header_solutions}}</a></li>
             <li><a href="#examples" class="hover:text-gray-400 text-sm md:text-base">{{header_examples}}</a></li>
-            <li><a href="#contact" class="hover:text-gray-400 text-sm md:text-base">{{header_contact}}</a></li>
+            <li><a href="#contacts" class="hover:text-gray-400 text-sm md:text-base">{{header_contact}}</a></li>
             <li class="hidden md:block"><a href="#faq" class="hover:text-gray-400">{{header_faq}}</a></li>
           </ul>
         </nav>
@@ -434,7 +434,48 @@
       <div class="hero-left px-8 sm:px-0">
         <h1 class="hero-title">{{hero_title}}</h1>
         <p class="hero-description">{{hero_description}}</p>
-        <a href="#about" class="hero-button">{{hero_button}}</a>
+        <a id="hero-button" class="hero-button">{{hero_button}}</a>
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center w-screen hidden" style="max-width: none;" id="hero-modal">
+          <div class="md:w-2/3 bg-gray-800 rounded-lg shadow-lg p-6 mt-8 sm:m-8 md:mx-12 md:mt-24">
+            <h2 class="text-2xl font-bold mb-4">{{form_title}}</h2>
+            <form id="form" class="space-y-4">
+              <div>
+                <label  class="block font-medium text-gray-300 mb-1">{{form_name}}</label>
+                <input type="text" id="name" name="name" class="w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-white" required>
+              </div>
+              <div>
+                <label  class="block font-medium text-gray-300 mb-1">{{form_contact}}</label>
+                <input type="text" id="contact" name="contact" class="w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-white" required>
+              </div>
+              <div>
+                <label  class="block font-medium text-gray-300 mb-1">{{form_comment}}</label>
+                <textarea id="comment" name="comment" rows="3" class="w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-white"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition-colors duration-300"
+              >{{form_btn}}</button>
+            </form>
+            <div id="form-send" style="height: 277px; margin-bottom: 30px;" class="flex flex-col justify-center items-center hidden">
+              <img src="media/clarity--form-line.svg" class="w-16 h-16 my-6" alt="Icon" />
+              <p class="text-lg text-center">{{form_send}}</p>
+            </div>
+          </div>
+        </div>
+        <script defer>
+          function initContactModal(){
+            const hm = document.getElementById('hero-modal');
+            const hb = document.getElementById('hero-button');
+            const cbs = document.querySelectorAll('[ocm]');
+            console.log(hm, hb, cbs);
+            
+            [...cbs,hb].forEach(btn => btn.addEventListener('click', () => {
+              console.log('!!!');
+              hm.classList.remove('hidden')}
+            ))
+            hm.addEventListener('click', e => {
+              if(e.target.id == 'hero-modal') hm.classList.add('hidden');
+            })
+          }
+        </script>
       </div>
       <div class="hero-right">
         <div class="text-white">
@@ -491,7 +532,7 @@
 
 <!-- FEATURES -->
 
-  <section class="text-white mx-20">
+  <section class="text-white mx-8 md:mx-20">
     
       <div data-name="features" class="m-4 md:m-20 relative flex justify-center flex-wrap">
           <div class="hidden md:block dv dv1"></div>
@@ -501,42 +542,42 @@
         
         
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--folder-audit-open.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки (3).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature5_title}}</h3>
           <p class="text-base font-light">{{feature5_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--code-of-conduct.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки (2).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature6_title}}</h3>
           <p class="text-base font-light">{{feature6_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--mjml.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки.png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature7_title}}</h3>
           <p class="text-base font-light">{{feature7_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--verilog.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки (1).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature8_title}}</h3>
           <p class="text-base font-light">{{feature8_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--unity.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки (7).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature1_title}}</h3>
           <p class="text-base font-light">{{feature1_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--todo.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки (6).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature2_title}}</h3>
           <p class="text-base font-light">{{feature2_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--twine.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки (4).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature3_title}}</h3>
           <p class="text-base font-light">{{feature3_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/catppuccin--api-blueprint.svg" class="w-8 h-8" alt="Icon" />
+          <img src="media/Иконки (5).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature4_title}}</h3>
           <p class="text-base font-light">{{feature4_text}}</p>
         </div>
@@ -585,7 +626,7 @@
 
 
 <!-- <div class="hidden lg:flex justify-center items-center gap-4">
-  <a href="#contact" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
+  <a href="#contacts" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
     <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
     </svg>
@@ -600,7 +641,7 @@
 <div class="mt-16"></div>
 <!-- вместо карусели будут презы -->
 <!--   -->
-<section class="text-white hidden lg:block my-2">
+<section class="text-white my-2">
   <!-- <div class="text-center md:hidden">
     <h2 class="text-3xl font-bold mb-16">{{bots_title}}</h2>
   </div> -->
@@ -614,7 +655,7 @@
                 <h3 class="text-xl font-bold m-8">{{bot1_title}}</h3>
                 <img src="media/chat-bot.gif" class="w-32 h-32 mx-auto" alt="Icon" />
                 <p class="sm:m-8 text-lg">{{bot1_text}}</p>
-                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+                <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
               </div>
         </div>
         <div class="carousel-item carousel-item--next control-next">
@@ -622,7 +663,7 @@
                 <h3 class="text-xl font-bold m-8">{{bot2_title}}</h3>
                 <img src="media/blog_12747824.gif" class="w-32 h-32 mx-auto" alt="Icon" />
                 <p class="sm:m-8 text-lg">{{bot2_text}}</p>
-                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+                <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
               </div>
         </div>
         <div class="carousel-item">
@@ -630,7 +671,7 @@
                 <h3 class="text-xl font-bold m-8">{{bot3_title}}</h3>
                 <img src="media/coding_10971760.gif" class="w-32 h-32 mx-auto" alt="Icon" />
                 <p class="sm:m-8 text-lg">{{bot3_text}}</p>
-                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+                <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
               </div>
         </div>
         <div class="carousel-item">
@@ -638,7 +679,7 @@
                 <h3 class="text-xl font-bold m-8">{{bot4_title}}</h3>
                 <img src="media/engagement_9583357.gif" class="w-32 h-32 mx-auto" alt="Icon" />
                 <p class="sm:m-8 text-lg">{{bot4_text}}</p>
-                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+                <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
               </div>
         </div>
         <div class="carousel-item">
@@ -646,7 +687,7 @@
                 <h3 class="text-xl font-bold m-8">{{bot5_title}}</h3>
                 <img src="media/q-a_17569472.gif" class="w-32 h-32 mx-auto" alt="Icon" />
                 <p class="sm:m-8 text-lg">{{bot5_text}}</p>
-                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+                <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
               </div>
         </div>
         <div class="carousel-item">
@@ -654,7 +695,7 @@
             <h3 class="text-xl font-bold m-8">{{bot6_title}}</h3>
             <img src="media/email_8717952.gif" class="w-32 h-32 mx-auto" alt="Icon" />
             <p class="sm:m-8 text-lg">{{bot6_text}}</p>
-            <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+            <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -662,7 +703,7 @@
                 <h3 class="text-xl font-bold m-8">{{bot7_title}}</h3>
                 <img src="media/video-conference_10690269.gif" class="w-32 h-32 mx-auto" alt="Icon" />
                 <p class="sm:m-8 text-lg">{{bot7_text}}</p>
-                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+                <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
               </div>
         </div>
         <div class="carousel-item">
@@ -670,7 +711,7 @@
                 <h3 class="text-xl font-bold m-8">{{bot8_title}}</h3>
                 <img src="media/conveyor-belt_15309756.gif" class="w-32 h-32 mx-auto" alt="Icon" />
                 <p class="sm:m-8 text-lg">{{bot8_text}}</p>
-                <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+                <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
               </div>
         </div>
         <div class="carousel-item carousel-item--prev control-prev">
@@ -678,7 +719,7 @@
             <h3 class="text-xl font-bold m-8">{{bot9_title}}</h3>
             <img src="media/hr_10051251.gif" class="w-32 h-32 mx-auto" alt="Icon" />
             <p class="sm:m-8 text-lg">{{bot9_text}}</p>
-            <a href="#contact" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
+            <a href="#contacts" class="text-blue-900 hover:text-blue-600 font-bold block text-right">{{bots_btn}}</a>
           </div>      
         </div>
 
@@ -711,9 +752,9 @@
         const div = document.createElement('div');
         div.classList = 'relative w-full overflow-hidden py-6 md:my-6';
         div.innerHTML = `
-<a href="#contact">
+<a href="#contacts">
   <div id="presentation${i}-${j}" class="presentation flex items-center overflow-x-scroll scroll-smooth">
-    ${pres.map((slide, o) => `<div class="w-screen h-full my-18 flex-shrink-0 flex gap-8 flex-col-reverse md:flex-row items-center justify-center">
+    ${pres.map((slide, o) => `<div class="presentation-item w-screen h-full my-18 flex-shrink-0 flex gap-8 flex-col-reverse md:flex-row items-center justify-center">
       <div class="w-full lg:w-6/12 lg:pl-14 relative px-24 text-white text-center md:text-left">
         <h2 class="${!o? 'text-3xl md:text-5xl': 'text-3xl'} font-bold mb-4">${textToHtml(slide.title)}</h2>
         <p class="mb-8 text-xl">${textToHtml(slide.d)}</p>
@@ -729,7 +770,7 @@
 
 ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex justify-center">
   <div class="flex justify-center items-center gap-4">
-    <a href="#contact" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
+    <a ocm class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
       </svg>
@@ -815,7 +856,7 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
 
 
 <!-- CONTACTS BLOcK -->
-<div id="contact"></div>
+<div id="contacts"></div>
 
 <section class="bg-gray-950 m-4 mt-40 my-20 md:m-20 text-white">
   <div class="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col md:flex-row items-center md:justify-between">
@@ -1023,14 +1064,13 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
         <!-- Остальные вопросы и ответы -->
       </div>
     </div>
-    <div id="contact"></div>
   </section>
   
 
 
 
-  <div class="flex justify-center items-center gap-4">
-    <a href="#contact" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
+  <div class="flex justify-center items-center mt-20">
+    <a href="#contacts" class="flex justify-center items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full py-3 px-6 mx-auto text-white">
       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
       </svg>
@@ -1288,36 +1328,39 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
 
 // SendForm
   function sendForm(){
-    const form = document.getElementsByTagName('form')[0];
-    console.log(form);
+    const forms = [...document.getElementsByTagName('form')];
+    console.log(forms);
     
-    form.addEventListener('submit', async (e) => {
-      console.log('Submit', form);
-      
-      e.preventDefault();
-      const data = {
-        name: form.querySelector('#name').value,
-        contact: form.querySelector('#contact').value,
-        comment: form.querySelector('#comment').value,
-      }
-      
-      await Promise.all(['323811652','545077453'].map(chat_id => {
-        return fetch(`https://api.telegram.org/bot${'7231741401:AAFw5YIgblEphuWa5ZYV7wExnmM-5mt2vdg'}/sendMessage`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    chat_id,
-                    text: `SiteForm send \n\`\`\`\n${JSON.stringify(data)}\n\`\`\`_`,
-                  })
-                });
-      }))
-
-      document.getElementById('form').classList.add('hidden');
-      document.getElementById('form-send').classList.remove('hidden');
-
-    })
+    forms.forEach(form=> 
+      form.addEventListener('submit', async (e) => {
+        console.log('Submit', form);
+        
+        e.preventDefault();
+        const data = {
+          name: form.querySelector('#name').value,
+          contact: form.querySelector('#contact').value,
+          comment: form.querySelector('#comment').value,
+        }
+        const forAlex = Date.now() % 2 != 0;
+        await Promise.all(['323811652','545077453', '434151552'].filter(id => !!id).map(chat_id => {
+          return fetch(`https://api.telegram.org/bot${'7231741401:AAFw5YIgblEphuWa5ZYV7wExnmM-5mt2vdg'}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                      parseMode: '',
+                      chat_id,
+                      text: `Aloha site send${forAlex? ' for Alex': ' for Kirill'}: \n\`\`\`\n${JSON.stringify(data)}\n\`\`\``,
+                    })
+                  });
+        }))
+  
+        document.getElementById('form').classList.add('hidden');
+        document.getElementById('form-send').classList.remove('hidden');
+  
+      })
+    )
   }
 // --- tgSMM
 
@@ -1330,7 +1373,7 @@ const languages = {
           title: "AI-ассистент для заявок с Yelp и Thumbtack",
           d: `Клиенты пишут — бот мгновенно отвечает, уточняет детали и передаёт вам готовую заявку.
  Вы получаете всё важное — без ручной рутины.`,
-          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_10.png"
+          img: "media/1.png"
         },
         {
           title: "Как это работает",
@@ -1339,7 +1382,7 @@ const languages = {
 2. Выясняет услугу, имя, удобное время, адрес и контакт
 3. Отправляет вам заявку в Telegram, WhatsApp или таблицу
 `,
-          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_13.png"
+          img: "media/2.png"
         },
         {
           title: "Что вы получаете",
@@ -1348,7 +1391,7 @@ const languages = {
  – 0 пропущенных обращений, даже ночью
  – Скорость отклика увеличивается в 5 раз
 `,
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_37_09.png"
+          img: "media/3.png"
         },
         {
           title: "Почему это выгодно",
@@ -1357,20 +1400,20 @@ const languages = {
  – Вы освобождаете 2–4 часа в день
  – Клиенты чувствуют заботу и реагируют быстрее
 `,
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_55_49.png"
+          img: "media/4.png"
         },
         {
           title: "Бесплатная разработка — платите только за подписку",
           d: ` Вы не платите за создание.
  Подключаем, когда всё работает и приносит результат.`,
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+          img: "media/5.png"
         }
       ],
       [
         {
           title: "AI-ассистент для мониторинга Telegram-чатов",
           d: `Бот отслеживает нужные вам сообщения по ключевым словам в любых группах и сразу пересылает их вам.`,
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+          img: "media/6.png"
         },
         {
           title: "Как это работает",
@@ -1378,7 +1421,7 @@ const languages = {
 2. Бот мониторит сотни чатов, а так же подключается к выбранным вами
 3. Когда находит совпадение — пересылает его вам в личку или CRM
 `,
-          img: "media/ChatGPT Image 14 июн. 2025 г., 20_03_13.png"
+          img: "media/7.png"
         },
         {
           title: "Что вы получаете",
@@ -1387,7 +1430,7 @@ const languages = {
  – До десятков релевантных сообщений в день — всё зависит от чатов
  – Работа без перерывов: бот читает чаты 24/7
 `,
-          img: "media/"
+          img: "media/8.png"
         },
         {
           title: "Почему это выгодно",
@@ -1396,14 +1439,14 @@ const languages = {
  – Мгновенное реагирование даёт преимущество перед конкурентами
  – Бот делает работу мониторщика за вас
 `,
-          img: "media/"
+          img: "media/9.png"
         },
         {
           title: "Бесплатная разработка — платите только за подписку",
           d: `Никаких затрат на запуск.
  Бот начинает работать, когда всё готово и согласовано с вами.
 `,
-          img: "media/"
+          img: "media/10.png"
         }
       ],
       [
@@ -1411,7 +1454,7 @@ const languages = {
           title: "AI-ассистент для Instagram и Facebook",
           d: `Автоматизируйте переписку с клиентами в Direct и Messenger.
  Бот отвечает мгновенно, собирает заявки и передаёт вам всё в удобном формате.`,
-          img: "media/"
+          img: "media/11.png"
         },
         {
           title: "Как это работает",
@@ -1420,7 +1463,7 @@ const languages = {
 3. Уточняет нужную услугу, имя, телефон, дату, фото и др.
 4. Формирует заявку и передаёт её вам — в Telegram, WhatsApp или таблицу
 `,
-          img: "media/"
+          img: "media/12.png"
         },
         {
           title: "Что вы получаете",
@@ -1428,7 +1471,7 @@ const languages = {
  – Ни одной потерянной заявки
  – Быстрая квалификация клиента без вашего участия
  – Сокращение ручной переписки до минимума`,
-          img: "media/"
+          img: "media/13.png"
         },
         {
           title: "Почему это выгодно",
@@ -1437,20 +1480,20 @@ const languages = {
  – Увеличивает конверсию в запись или покупку
  – Подходит для салонов, магазинов, консультантов и услуг
 `,
-          img: "media/"
+          img: "media/14.png"
         },
         {
           title: "Бесплатная разработка — платите только за подписку",
           d: `Мы берём на себя настройку и запуск.
  Оплачиваете только рабочее решение, когда всё готово.`,
-          img: "media/"
+          img: "media/15.png"
         }
       ],
       [
         {
           title: "AI-ассистент для видеомаркетинга",
           d: `Бот превращает текст в видео с говорящим ИИ-аватаром, генерирует озвучку, монтирует и выкладывает в соцсети и мессенджеры.`,
-          img: "media/"
+          img: "media/16.png"
         },
         {
           title: "Что умеет бот",
@@ -1458,7 +1501,7 @@ const languages = {
  – Генерирует озвучку на любом языке и тоне
  – Добавляет фон, субтитры, музыку, лого
  – Публикует готовый ролик в Instagram, Telegram, TikTok и другие платформы`,
-          img: "media/"
+          img: "media/17.png"
         },
         {
           title: "Как это работает",
@@ -1467,7 +1510,7 @@ const languages = {
 3. Сохраняет ролик и отправляет на согласование
 4. Публикует в нужные каналы, соблюдая расписание
 `,
-          img: "media/"
+          img: "media/18.png"
         },
         {
           title: "Преимущества",
@@ -1475,40 +1518,40 @@ const languages = {
  – Видео выходят регулярно без вашего участия
  – Стиль, голос и формат — в вашем бренде
  – Аватар может вести блог, отвечать на вопросы и продавать 24/7`,
-          img: "media/"
+          img: "media/19.png"
         },
         {
           title: "Бесплатная разработка — оплата только за подписку",
           d: `Подходит экспертам, агентствам, школам, блогерам и бизнесам, которые хотят системный контент — без найма команды и ручной рутины.
 `,
-          img: "media/"
+          img: "media/20.png"
         }
       ],
       [
         {
           "title": "AI-ассистент: Телеграм СММ-копирайтер",
           "d": "Интеллектуальный ассистент, который пишет, находит актуальный контент и публикует посты в вашем Telegram-канале. Полностью автоматизирует ведение канала, освобождая ваше время.",
-          "img": ""
+          "img": "media/21.png"
         },
         {
           "title": "Как это работает",
           "d": "1. Настраиваем источники: Вы задаете боту сайты, блоги, новости и другие ресурсы для анализа.\n2. Задаём расписание: Вы загружаете готовые посты или даете инструкции по их созданию и указываете график публикаций.\n3. Бот работает автономно: Он сам генерирует или выбирает контент, оформляет его и публикует точно в срок 24/7.",
-          "img": ""
+          "img": "media/22.png"
         },
         {
           "title": "Что вы получаете",
           "d": "– Автономная работа 24/7: Настроил один раз — и канал ведётся сам.\n– Всегда актуальный контент: Бот мониторит новости и тренды, чтобы посты были свежими.\n– Строгое соблюдение графика: Никаких задержек и пропущенных публикаций.\n– Отсутствие человеческого фактора: Надежность и стабильность, которые не могут дать фрилансеры.",
-          "img": ""
+          "img": "media/23.png"
         },
         {
           "title": "Почему это выгодно",
           "d": "– Экономия на SMM-специалисте: Решение дешевле фрилансера или штатного сотрудника.\n– Фокус на главном: Вы освобождаете время от рутины для стратегических задач.\n– Рост доверия аудитории: Регулярный и качественный контент прогревает клиентов.\n– Конкурентное преимущество: Автоматизация позволяет опередить тех, кто всё ещё делает это вручную.",
-          "img": ""
+          "img": "media/24.png"
         },
         {
           "title": "Бесплатная адаптация — платите только за подписку",
           "d": "Мы адаптируем бота под ваши задачи и источники контента. Вы получаете готовое решение без затрат на запуск. Протестируйте бесплатно и платите, только когда убедитесь в результате.",
-          "img": ""
+          "img": "media/25.png"
         }
       ],
       [
@@ -1529,20 +1572,20 @@ const languages = {
           img: "media/Mark.svg"
         },
         {
+          title: "Ирина — владелица клинингового сервиса в Чикаго",
+          d: `Ирина вручную считала стоимость уборки, записывала заказы в блокнот и путалась в графике.
+        AI-ассистент теперь автоматически рассчитывает цену по параметрам квартиры, записывает на удобное время, отправляет напоминания и принимает отзывы.
+        Благодаря этому Ирина сократила количество ошибок и увеличила повторные заказы на 35%.
+        `,
+          img: "media/Evelin.svg"
+        },
+        {
           title: "Андрей — мастер по ремонту HVAC в Лос-Анджелесе",
           d: `Андрей часто был в разъездах и не мог брать трубку. Из-за этого терялись клиенты.
 Для него мы настроили AI-бота, который принимает заявки, уточняет адрес, запрашивает фото поломки и предлагает свободные окна по расписанию.
 За первый месяц бот сгенерировал 18 новых заказов, которые раньше просто терялись в пропущенных звонках.
 `,
           img: "media/Mark.svg"
-        },
-        {
-          title: "Ирина — владелица клинингового сервиса в Чикаго",
-          d: `Ирина вручную считала стоимость уборки, записывала заказы в блокнот и путалась в графике.
-AI-ассистент теперь автоматически рассчитывает цену по параметрам квартиры, записывает на удобное время, отправляет напоминания и принимает отзывы.
-Благодаря этому Ирина сократила количество ошибок и увеличила повторные заказы на 35%.
-`,
-          img: "media/Evelin.svg"
         },
         {
           title: "Маргарита — владелица интернет-магазина на Shopify",
@@ -1647,135 +1690,135 @@ AI-ассистент теперь автоматически рассчитыв
         {
           "title": "AI Assistant for Leads from Yelp and Thumbtack",
           "d": "Customers write—the bot instantly replies, clarifies details, and sends you a ready-to-go lead.\nYou get all the important info—without the manual routine.",
-          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_10.png"
+          img: "media/1.png"
         },
         {
           "title": "How It Works",
           "d": "1. A customer submits a request via Yelp or Thumbtack.\nThe bot replies within 15–30 seconds.\n2. It clarifies the service, name, convenient time, address, and contact info.\n3. It sends the lead to you in Telegram, WhatsApp, or a spreadsheet.",
-          img: "media/ChatGPT Image 13 июн. 2025 г., 18_35_13.png"
+          img: "media/2.png"
         },
         {
           "title": "What You Get",
           "d": "– Up to 92% of leads processed without your involvement\n– 2–3 minutes from request to a ready-made lead card\n– 0 missed inquiries, even at night\n– Response speed increases 5x",
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_37_09.png"
+          img: "media/3.png"
         },
         {
           "title": "Why It's a Win",
           "d": "– Customer conversion rate increases by 35–50%\n– Administrator's workload is reduced by up to 70%\n– You free up 2–4 hours a day\n– Customers feel cared for and respond faster",
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_55_49.png"
+          img: "media/4.png"
         },
         {
           "title": "Free Development — Pay Only for the Subscription",
           "d": "You don't pay for creation.\nWe launch it once everything is working and delivering results.",
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+          img: "media/5.png"
         }
       ],
       [
         {
           "title": "AI Assistant for Monitoring Telegram Chats",
           "d": "The bot tracks messages you need by keywords in any group and immediately forwards them to you.",
-          img: "media/ChatGPT Image 14 июн. 2025 г., 19_57_51.png"
+          img: "media/6.png"
         },
         {
           "title": "How It Works",
           "d": "1. You create a task.\n2. The bot monitors hundreds of chats and connects to the ones you choose.\n3. When it finds a match, it forwards it to your private messages or CRM.",
-          img: "media/ChatGPT Image 14 июн. 2025 г., 20_03_13.png"
+          img: "media/7.png"
         },
         {
           "title": "What You Get",
           "d": "– Only live and warm leads from real people\n– The ability to be the first to respond to relevant posts\n– Up to dozens of relevant messages per day—it all depends on the chats\n– Non-stop operation: the bot reads chats 24/7",
-          "img": ""
+          "img": "media/8.png"
         },
         {
           "title": "Why It's a Win",
           "d": "– No need to spend money on advertising\n– You get leads directly from chats where demand already exists\n– Instant responses give you an edge over competitors\n– The bot does the monitoring work for you",
-          "img": ""
+          "img": "media/9.png"
         },
         {
           "title": "Free Development — Pay Only for the Subscription",
           "d": "No upfront costs.\nThe bot starts working once everything is ready and approved by you.",
-          "img": ""
+          "img": "media/10.png"
         }
       ],
       [
         {
           "title": "AI Assistant for Instagram and Facebook",
           "d": "Automate conversations with customers in Direct and Messenger.\nThe bot replies instantly, collects leads, and delivers everything to you in a convenient format.",
-          "img": ""
+          "img": "media/11.png"
         },
         {
           "title": "How It Works",
           "d": "1. A customer messages you on Instagram or Facebook.\n2. The bot replies within 10–30 seconds.\n3. It clarifies the required service, name, phone number, date, photos, etc.\n4. It creates a lead and sends it to you—in Telegram, WhatsApp, or a spreadsheet.",
-          "img": ""
+          "img": "media/12.png"
         },
         {
           "title": "What You Get",
           "d": "– 24/7 responses, even at night and on weekends\n– Not a single lost lead\n– Fast lead qualification without your involvement\n– Manual correspondence reduced to a minimum",
-          "img": ""
+          "img": "media/13.png"
         },
         {
           "title": "Why It's a Win",
           "d": "– Builds trust: customers get an immediate response\n– Frees up time for work, not for messaging\n– Increases conversions to appointments or purchases\n– Suitable for salons, stores, consultants, and service providers",
-          "img": ""
+          "img": "media/14.png"
         },
         {
           "title": "Free Development — Pay Only for the Subscription",
           "d": "We handle the setup and launch.\nYou only pay for a working solution once it's ready.",
-          "img": ""
+          "img": "media/15.png"
         }
       ],
       [
         {
           "title": "AI Assistant for Video Marketing",
           "d": "The bot turns text into a video with a talking AI avatar, generates a voice-over, edits it, and posts it to social media and messengers.",
-          "img": ""
+          "img": "media/16.png"
         },
         {
           "title": "What the Bot Can Do",
           "d": "– Creates videos with a virtual avatar based on your script\n– Generates voice-overs in any language and tone\n– Adds backgrounds, subtitles, music, and logos\n– Publishes the final video to Instagram, Telegram, TikTok, and other platforms",
-          "img": ""
+          "img": "media/17.png"
         },
         {
           "title": "How It Works",
           "d": "1. You provide the text (or the bot gets it from your CRM, landing page, or news feed).\n2. The bot turns it into a video with a voice-over and visuals.\n3. It saves the video and sends it for approval.\n4. It publishes to the selected channels according to a schedule.",
-          "img": ""
+          "img": "media/18.png"
         },
         {
           "title": "Advantages",
           "d": "– Save up to 10 hours a week on content creation\n– Videos are published regularly without your involvement\n– Style, voice, and format are all on-brand\n– The avatar can run a blog, answer questions, and sell 24/7",
-          "img": ""
+          "img": "media/19.png"
         },
         {
           "title": "Free Development — Pay Only for the Subscription",
           "d": "Perfect for experts, agencies, schools, bloggers, and businesses that want consistent content—without hiring a team or dealing with manual routines.",
-          "img": ""
+          "img": "media/20.png"
         }
       ],
       [
         {
           "title": "AI Assistant: Telegram SMM Copywriter",
           "d": "An intelligent assistant that writes, finds relevant content, and publishes posts on your Telegram channel. It fully automates channel management, freeing up your time.",
-          "img": ""
+          "img": "media/21.png"
         },
         {
           "title": "How It Works",
           "d": "1. Configure Sources: You tell the bot which websites, blogs, news, and other resources to analyze.\n2. Set a Schedule: You upload ready-made posts or provide instructions for their creation and specify a publishing schedule.\n3. The Bot Works Autonomously: It generates or selects content on its own, formats it, and publishes it on time, 24/7.",
-          "img": ""
+          "img": "media/22.png"
         },
         {
           "title": "What You Get",
           "d": "– Autonomous 24/7 Operation: Set it up once, and the channel runs itself.\n– Always Fresh Content: The bot monitors news and trends to keep posts current.\n– Strict Schedule Adherence: No delays or missed publications.\n– No Human Error: Reliability and stability that freelancers can't match.",
-          "img": ""
+          "img": "media/23.png"
         },
         {
           "title": "Why It's a Win",
           "d": "– Save on an SMM Specialist: A solution cheaper than a freelancer or an in-house employee.\n– Focus on What Matters: You free up time from routine tasks for strategic goals.\n– Build Audience Trust: Regular, high-quality content nurtures your clients.\n– Competitive Advantage: Automation lets you get ahead of those still doing it manually.",
-          "img": ""
+          "img": "media/24.png"
         },
         {
           "title": "Free Adaptation — Pay Only for the Subscription",
           "d": "We adapt the bot to your tasks and content sources. You get a ready-made solution with no setup costs. Test it for free and only pay when you're convinced of the results.",
-          "img": ""
+          "img": "media/25.png"
         }
       ],
       [
@@ -1790,14 +1833,14 @@ AI-ассистент теперь автоматически рассчитыв
           "img": "media/Mark.svg"
         },
         {
-          "title": "Andrey — HVAC Repair Technician in Los Angeles",
-          "d": "Andrey was often on the road and couldn't answer his phone, which meant losing clients.\nWe set up an AI bot for him that takes service requests, confirms the address, asks for photos of the malfunction, and suggests available time slots from his schedule.\nIn the first month, the bot generated 18 new jobs that would have otherwise been lost to missed calls.",
-          "img": "media/Mark.svg"
-        },
-        {
           "title": "Irina — Owner of a Cleaning Service in Chicago",
           "d": "Irina used to manually calculate cleaning costs, write down orders in a notebook, and get mixed up with her schedule.\nAn AI assistant now automatically calculates the price based on apartment parameters, books convenient times, sends reminders, and collects reviews.\nThanks to this, Irina has reduced errors and increased repeat orders by 35%.",
           "img": "media/Evelin.svg"
+        },
+        {
+          "title": "Andrey — HVAC Repair Technician in Los Angeles",
+          "d": "Andrey was often on the road and couldn't answer his phone, which meant losing clients.\nWe set up an AI bot for him that takes service requests, confirms the address, asks for photos of the malfunction, and suggests available time slots from his schedule.\nIn the first month, the bot generated 18 new jobs that would have otherwise been lost to missed calls.",
+          "img": "media/Mark.svg"
         },
         {
           "title": "Margarita — Owner of a Shopify E-commerce Store",
@@ -1910,6 +1953,7 @@ AI-ассистент теперь автоматически рассчитыв
     initCarusel();
     initAccardeon();
     initChat();
+    initContactModal();
     sendForm();
     AOS.init();
   }
@@ -1932,6 +1976,7 @@ AI-ассистент теперь автоматически рассчитыв
   initCarusel();
   initAccardeon();
   initChat();
+  initContactModal();
   sendForm();
   AOS.init();
 </script>
