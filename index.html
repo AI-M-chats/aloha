@@ -886,8 +886,7 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
                       'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                      parseMode: '',
-                      chat_id: 323811652,
+                      chat_id: '323811652',
                       text: `Aloha site lead to ${social}`,
                     })
                   });
@@ -1365,7 +1364,7 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
                       'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                      parseMode: '',
+                      parseMode: 'Markdown',
                       chat_id,
                       text: `Aloha site send${forAlex? ' for Alex': ' for Kirill'}: \n\`\`\`\n${JSON.stringify(data)}\n\`\`\``,
                     })
