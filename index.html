@@ -378,6 +378,24 @@
   </style>
   <title>ALOHA AI разработка ботов с искуственным интелектом</title>
   <link rel="icon" type="image/x-icon" href="media/logo_sm.png">
+
+  <!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '586250897466732');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=586250897466732&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <div data-name="search-keys" style="display: none;">
@@ -543,42 +561,42 @@
         
         
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки (3).png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW (3).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature5_title}}</h3>
           <p class="text-base font-light">{{feature5_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки (2).png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW (2).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature6_title}}</h3>
           <p class="text-base font-light">{{feature6_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки.png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW.png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature7_title}}</h3>
           <p class="text-base font-light">{{feature7_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки (1).png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW (1).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature8_title}}</h3>
           <p class="text-base font-light">{{feature8_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки (7).png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW (7).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature1_title}}</h3>
           <p class="text-base font-light">{{feature1_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки (6).png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW (6).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature2_title}}</h3>
           <p class="text-base font-light">{{feature2_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки (4).png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW (4).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature3_title}}</h3>
           <p class="text-base font-light">{{feature3_text}}</p>
         </div>
         <div class="features-card md:w-1/4 h-1/2 p-8">
-          <img src="media/Иконки (5).png" class="w-12 h-12" alt="Icon" />
+          <img src="media/Иконки NEW (5).png" class="w-12 h-12" alt="Icon" />
           <h3 class="font-medium text-lg my-4">{{feature4_title}}</h3>
           <p class="text-base font-light">{{feature4_text}}</p>
         </div>
@@ -760,7 +778,7 @@
         <h2 class="${!o? 'text-3xl md:text-5xl': 'text-3xl'} font-bold mb-4">${textToHtml(slide.title)}</h2>
         <p class="mb-8 text-xl">${textToHtml(slide.d)}</p>
       </div>
-      <div class="w-1/5 lg:w-2/12">
+      <div class=${p.length-1==j? "w-1/2 lg:w-1/5":"w-1/5 lg:w-2/12"}>
         <img src="${slide.img}" alt="Описание изображения" class="w-full h-full object-contain mx-auto" />
       </div>
     </div>`).join('\n')}
@@ -1577,7 +1595,7 @@ const languages = {
 Для неё был разработан AI-ассистент, который 24/7 отвечает на частые вопросы (стоимость, услуги, адрес), записывает на процедуры, отправляет напоминания и собирает отзывы после визита.
 Теперь Кристина экономит до 4 часов в день и больше не теряет клиентов из-за того, что не успела ответить.
 `,
-          img: "media/Alina.svg"
+          img: "media/Женщина.png"
         },
         {
           title: "Алексей — иммиграционный консультант в Майами",
@@ -1585,7 +1603,7 @@ const languages = {
 Мы настроили AI-бота, который отвечает на типовые вопросы, помогает пройти предварительное анкетирование и собирает данные для консультации.
 Теперь Алексей тратит время только на клиентов, которые уже готовы к работе — и увеличил конверсию с обращений в оплаченные заявки на 40%.
 `,
-          img: "media/Mark.svg"
+          img: "media/Мужчина.png"
         },
         {
           title: "Ирина — владелица клинингового сервиса в Чикаго",
@@ -1593,7 +1611,7 @@ const languages = {
         AI-ассистент теперь автоматически рассчитывает цену по параметрам квартиры, записывает на удобное время, отправляет напоминания и принимает отзывы.
         Благодаря этому Ирина сократила количество ошибок и увеличила повторные заказы на 35%.
         `,
-          img: "media/Evelin.svg"
+          img: "media/Женщина.png"
         },
         {
           title: "Андрей — мастер по ремонту HVAC в Лос-Анджелесе",
@@ -1601,7 +1619,7 @@ const languages = {
 Для него мы настроили AI-бота, который принимает заявки, уточняет адрес, запрашивает фото поломки и предлагает свободные окна по расписанию.
 За первый месяц бот сгенерировал 18 новых заказов, которые раньше просто терялись в пропущенных звонках.
 `,
-          img: "media/Mark.svg"
+          img: "media/Мужчина.png"
         },
         {
           title: "Маргарита — владелица интернет-магазина на Shopify",
@@ -1609,7 +1627,7 @@ const languages = {
 Для неё мы настроили AI-ассистента, который отвечает на все клиентские вопросы: показывает статус заказа, отправляет трек-номер, помогает оформить покупку и оформляет возвраты.
 Благодаря боту Маргарита сократила время на поддержку в 3 раза и повысила количество повторных покупок — клиенты довольны скоростью и вниманием.
 `,
-          img: "media/Alina.svg"
+          img: "media/Женщина.png"
         }
       ]
     ],
