@@ -47,7 +47,7 @@
     }
 
     .hero {
-      height: 90vh;
+      min-height: 800px;
       background: url('media/aloha_bg.png') center/cover no-repeat; /* Фоновое изображение */
       position: relative; /* Для размещения псевдоэлемента */
       /* overflow: hidden; Скрываем псевдоэлемент, чтобы не было лишнего контента */
@@ -81,7 +81,7 @@
       align-items: center;
       flex-wrap: wrap-reverse;
       color: white;
-      height: 100vh;
+      min-height: 100vh;
     }
    
     .hero-content div {
@@ -101,6 +101,7 @@
       padding: 0 4rem;
       width: 420px;
       min-height: 160px;
+      z-index: 100;
     }
 
     .hero-title {
@@ -136,14 +137,14 @@
     @media screen and (max-width: 1200px) {
       .hero-content {
         height: auto;
-        max-height: 100vh;
-        padding-top: 24vh;
+        max-height: 200vh;
+        padding: 2rem 0; 
       }
       .hero-left {
         padding-right: 0;
       }
       .hero-right {
-        min-height: 200px;
+        min-height: 400px;
       }
     }
 
@@ -401,16 +402,16 @@
   <header class="text-white py-2 md:py-4 fixed top-0 left-0 w-screen z-20">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center">
-        <a href="#" class="text-lg font-bold m-4 md:mr-14  w-18 h-8 flex items-center justify-center">
+        <a href="#" class="text-base md:text-lg font-bold m-4 md:mr-14  w-36 md:w-18 h-8 flex items-center justify-center">
           A<span class="font-light">LOH</span>A AI
         </a>
         <nav>
-          <ul class="flex flex-wrap space-x-1 md:space-x-4">
+          <ul class="flex justify-start flex-wrap space-x-2 md:space-x-4">
             <!-- <li class="hidden md:block"><a href="#about" class="hover:text-gray-400">{{header_about}}</a></li> -->
             <li class="hidden md:block"><a href="#features" class="hover:text-gray-400">{{header_features}}</a></li>
-            <li><a href="#solutions" class="hover:text-gray-400 text-sm md:text-base">{{header_solutions}}</a></li>
-            <li><a href="#examples" class="hover:text-gray-400 text-sm md:text-base">{{header_examples}}</a></li>
-            <li><a href="#contacts" class="hover:text-gray-400 text-sm md:text-base">{{header_contact}}</a></li>
+            <li><a href="#solutions" class="hover:text-gray-400 text-xs md:text-base">{{header_solutions}}</a></li>
+            <li><a href="#examples" class="hover:text-gray-400 text-xs md:text-base">{{header_examples}}</a></li>
+            <li><a href="#contacts" class="hover:text-gray-400 text-xs md:text-base">{{header_contact}}</a></li>
             <li class="hidden md:block"><a href="#faq" class="hover:text-gray-400">{{header_faq}}</a></li>
           </ul>
         </nav>
