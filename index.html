@@ -756,7 +756,7 @@
 <a href="#contacts">
   <div id="presentation${i}-${j}" class="presentation flex items-center overflow-x-scroll scroll-smooth">
     ${pres.map((slide, o) => `<div class="presentation-item w-screen h-full my-18 flex-shrink-0 flex gap-8 flex-col-reverse md:flex-row items-center justify-center">
-      <div class="w-full lg:w-6/12 lg:pl-14 relative px-24 text-white text-center md:text-left">
+      <div class="w-full lg:w-6/12 lg:pl-14 relative px-16 text-white text-center md:text-left">
         <h2 class="${!o? 'text-3xl md:text-5xl': 'text-3xl'} font-bold mb-4">${textToHtml(slide.title)}</h2>
         <p class="mb-8 text-xl">${textToHtml(slide.d)}</p>
       </div>
@@ -766,8 +766,8 @@
     </div>`).join('\n')}
   </div>
 </a>
-<button onclick="prevSlide('presentation${i}-${j}')" class="absolute left-6 md:left-16 top-1/2 transform -translate-y-1/2 text-white p-4 text-2xl" style="background: rgba(31, 41, 55, 0.5);">❮</button>
-<button onclick="nextSlide('presentation${i}-${j}')" class="absolute right-6 md:right-16 top-1/2 transform -translate-y-1/2 text-white p-4 text-2xl" style="background: rgba(31, 41, 55, 0.5);">❯</button>
+<button onclick="prevSlide('presentation${i}-${j}')" class="absolute left-1 md:left-16 top-1/2 transform -translate-y-1/2 text-white p-4 text-2xl" style="background: rgba(31, 41, 55, 0.5);">❮</button>
+<button onclick="nextSlide('presentation${i}-${j}')" class="absolute right-1 md:right-16 top-1/2 transform -translate-y-1/2 text-white p-4 text-2xl" style="background: rgba(31, 41, 55, 0.5);">❯</button>
 
 ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex justify-center">
   <div class="flex justify-center items-center gap-4">
