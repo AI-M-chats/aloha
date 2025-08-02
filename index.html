@@ -1193,7 +1193,7 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
         body: JSON.stringify({
           dialog: [
             {role: 'assistant', content: `/start FROM ALOHA FORE ${Date.now()%2 !=0? 'Alex': 'Kirill'} `},
-            {role: 'assistant', content: fmsg.innerText}, 
+            {role: 'assistant', content: chat.getElementsByTagName('div')[0].innerText}, // получаю fmsg заного что бы не было замыкания при смене языка
             ...chatStorage.dialog
           ]
         })
