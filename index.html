@@ -1191,7 +1191,11 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          dialog: [{role: 'assistant', content: `/start FROM ALOHA FORE ${Date.now()%2 !=0? 'Alex': 'Kirill'} `}, ...chatStorage.dialog]
+          dialog: [
+            {role: 'assistant', content: `/start FROM ALOHA FORE ${Date.now()%2 !=0? 'Alex': 'Kirill'} `},
+            {role: 'assistant', content: fmsg.innerText}, 
+            ...chatStorage.dialog
+          ]
         })
       })
       if(resp.ok) results = await resp.json();
