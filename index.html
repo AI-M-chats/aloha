@@ -1187,7 +1187,7 @@ ${j==p.length-1? '' : `<div class="absolute right-0 w-0 bottom-0 w-screen flex j
       let results = [];
       console.log('!!! ',[{role: 'assistant', content: '/start'}, ...chatStorage.dialog].map(m=>({...m, text: m.content})));
 
-      const resp = await fetch(`https://build-master-zu7kk.ondigitalocean.app/chat/?chatId=${window.sessionStorage.getItem('chatId')}`,{
+      const resp = await fetch(`https://starfish-app-vjpzu.ondigitalocean.app/chat/?chatId=${window.sessionStorage.getItem('chatId')}`,{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
